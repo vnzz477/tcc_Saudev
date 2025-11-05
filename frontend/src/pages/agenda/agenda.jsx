@@ -211,11 +211,11 @@ export default function Agenda() {
 
       <section className="endereco">
         <div className="logo">
-<<<<<<< HEAD
+
           <img src="/santoamr.webp" height="100px" className="logo" alt="Hospital São Paulo" />
-=======
+          
           <img src="/hospitalst.webp" height="100px" className="logo" alt="Hospital São Paulo" />
->>>>>>> 7979f9844defca97a9c496fafef4ce7583e0e01a
+
         </div>
 
         <div className="escrita">
