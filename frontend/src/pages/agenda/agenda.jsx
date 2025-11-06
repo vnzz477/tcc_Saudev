@@ -1,260 +1,315 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import "./Agenda.scss";
 import api from "../../api";
 import Cabecalho from "../../components/cabecalho/Cabecalho";
 
 export default function Agenda() {
-    const [motivo, setMotivo] = useState('');
-    const [especialidade, setEspecialidade] = useState('');
-    const [hospital, setHospital] = useState('');
-    const [medico, setMedico] = useState('');
-    const [listaMedicos, setListaMedicos] = useState([]);
-    const [data, setData] = useState('');
-    const [hora, setHora] = useState('');
+  const [motivo, setMotivo] = useState("");
+  const [especialidade, setEspecialidade] = useState("");
+  const [hospital, setHospital] = useState("");
+  const [medico, setMedico] = useState("");
+  const [listaMedicos, setListaMedicos] = useState([]);
+  const [data, setData] = useState("");
+  const [hora, setHora] = useState("");
 
-    async function carregarMedicos(idHospital) {
-        try {
-            const resp = await api.get(`/medicos/${idHospital}`);
-            setListaMedicos(resp.data);
-        } catch (err) {
-            alert("Erro ao carregar médicos!");
-        }
+
+
+  async function carregarMedicos(idHospital) {
+    try {
+      const resp = await api.get(`/medicos/${idHospital}`);
+      setListaMedicos(resp.data);
+    } catch (err) {
+      alert("Erro ao carregar médicos!");
     }
+  }
 
-    function selecionarHospital(e) {
-        const id = e.target.value;
-        setHospital(id);
-        carregarMedicos(id); 
+
+
+  function selecionarHospital(e) {
+    const id = e.target.value;
+    setHospital(id);
+    carregarMedicos(id);
+  }
+
+
+
+  async function agendarConsulta(e) {
+    e.preventDefault();
+
+    try {
+      const id_usuario = localStorage.getItem("ID_USUARIO");
+
+      if (!id_usuario) {
+        alert("Usuário não identificado. Faça login novamente.");
+        return;
+      }
+
+      const body = {
+        motivo,
+        especialidade,
+        id_medico: medico,
+        id_hospital: hospital,
+        id_usuario,
+        data,
+        hora,
+      };
+
+      await api.post("/consulta", body);
+
+      alert("Consulta agendada com sucesso!");
+
+      
+      setMotivo("");
+      setEspecialidade("");
+      setHospital("");
+      setMedico("");
+      setData("");
+      setHora("");
+      setListaMedicos([]);
+    } catch (err) {
+      console.error(err);
+      alert("Erro ao agendar consulta: " + (err.response?.data?.erro || err.message));
     }
+  }
 
-    async function agendarConsulta(e) {
-        e.preventDefault();
 
-        try {
-            const body = { motivo, especialidade, medico, data, hora };
-            await api.post('/consulta', body);
 
-            alert("Consulta agendada com sucesso!");
-        } catch (err) {
-            alert("Erro ao agendar consulta: " + err.response?.data?.erro);
-        }
-    }
 
-    return (
-        <>
-            <Cabecalho />
+  return (
+    <>
+      <Cabecalho />
 
-            <section className="agenda-section">
-                <div className="agenda-container">
-                    <div className="agenda-imagem">
-                        <img src="/medica3.png" alt="Médica" />
-                    </div>
+      <section className="agenda-section">
+        <div className="agenda-container">
+          <div className="agenda-imagem">
+            <img src="/medica3.png" alt="Médica" />
+          </div>
 
-                    <div className="agenda-formulario">
-                        <h2>Agende sua consulta</h2>
-                        <p>Preencha os campos abaixo para escolher sua especialidade e confirmar sua consulta com segurança.</p>
+          <div className="agenda-formulario">
+            <h2>Agende sua consulta</h2>
+            <p>
+              Preencha os campos abaixo para escolher sua especialidade e
+              confirmar sua consulta com segurança.
+            </p>
 
-                        <form>
-                            <label htmlFor="motivo">Informe o motivo da consulta</label>
-                            <input type="text" id="motivo" required value={motivo} onChange={(e) => setMotivo(e.target.value)} />
+            <form onSubmit={agendarConsulta}>
+              <label htmlFor="motivo">Informe o motivo da consulta</label>
+              <input type="text" id="motivo" required value={motivo} onChange={(e) => setMotivo(e.target.value)}/>
 
-                            <div className="form-dupla">
-                                <div>
-                                    <label htmlFor="hospital">Selecione o hospital</label>
-                                    <select id="hospital" value={hospital} onChange={selecionarHospital}>
-                                        <option value="">Selecione</option>
-                                        <option value="1">Hospital São Paulo</option>
-                                        <option value="2">Hospital Geral Grajaú</option>
-                                        <option value="3">Hospital Municipal Santo Amaro</option>
-                                    </select>
-                                </div>
-
-                                <div>
-                                    <label htmlFor="especialidade">Especialidade</label>
-                                    <select id="especialidade" value={especialidade} onChange={(e) => setEspecialidade(e.target.value)}>
-                                        <option value="">Selecione</option>
-                                        <option>Clínico Geral</option>
-                                        <option>Cardiologia</option>
-                                        <option>Pediatria</option>
-                                        <option>Ortopedia</option>
-                                        <option>Dermatologia</option>
-                                    </select>
-                                </div>
-                            </div>
-
-                            <div className="form-dupla">
-                                <div>
-                                    <label htmlFor="medico">Selecione o médico</label>
-                                    <select id="medico" value={medico} onChange={(e) => setMedico(e.target.value)}>
-                                        <option value="">Selecione um médico</option>
-                                        {listaMedicos.map(m => (
-                                            <option key={m.id_medico} value={m.id_medico}>
-                                                {m.nome} - {m.especialidade}
-                                            </option>
-                                        ))}
-                                    </select>
-                                </div>
-                            </div>
-
-                            <div className="form-dupla">
-                                <div>
-                                    <label htmlFor="data">Data da consulta</label>
-                                    <input type="date" id="data" value={data} onChange={(e) => setData(e.target.value)} />
-                                </div>
-
-                                <div>
-                                    <label htmlFor="hora">Horário disponível</label>
-                                    <input type="time" id="hora" value={hora} onChange={(e) => setHora(e.target.value)} />
-                                </div>
-                            </div>
-
-                            <button type="button" onClick={agendarConsulta}>Agendar Consulta</button>
-                        </form>
-                    </div>
+              <div className="form-dupla">
+                <div>
+                  <label htmlFor="hospital">Selecione o hospital</label>
+                  <select id="hospital" value={hospital} onChange={selecionarHospital}>
+                    <option value="">Selecione</option>
+                    <option value="1">Hospital São Paulo</option>
+                    <option value="2">Hospital Geral Grajaú</option>
+                    <option value="3">Hospital Municipal Santo Amaro</option>
+                  </select>
                 </div>
-            </section>
 
-             <div className="cima">
-        <h1>Hospitais para a sua consulta</h1>
+                <div>
+                  <label htmlFor="especialidade">Especialidade</label>
+                  <select id="especialidade" value={especialidade} onChange={(e) => setEspecialidade(e.target.value)}>
+                    <option value="">Selecione</option>
+                    <option>Clínico Geral</option>
+                    <option>Cardiologia</option>
+                    <option>Pediatria</option>
+                    <option>Ortopedia</option>
+                    <option>Dermatologia</option>
+                  </select>
+                </div>
+              </div>
 
-        <section className="endereco">
-          <div className="logo">
-            <img src="/hospitalsp.webp" height="100px" className="logo" alt="Hospital São Paulo" />
+              <div className="form-dupla">
+                <div>
+                  <label htmlFor="medico">Selecione o médico</label>
+                  <select
+                    id="medico"
+                    value={medico}
+                    onChange={(e) => setMedico(e.target.value)}
+                  >
+                    <option value="">Selecione um médico</option>
+                    {listaMedicos.map((m) => (
+                      <option key={m.id_medico} value={m.id_medico}>
+                        {m.nome} - {m.especialidade}
+                      </option>
+                    ))}
+
+                  </select>
+                </div>
+              </div>
+
+              <div className="form-dupla">
+                <div>
+
+                  <label htmlFor="data">Data da consulta</label>
+                  <input
+                    type="date" id="data" value={data} onChange={(e) => setData(e.target.value)}/>
+                </div>
+
+                <div>
+                  <label htmlFor="hora">Horário disponível</label>
+                  <input
+                    type="time" id="hora" value={hora} onChange={(e) => setHora(e.target.value)}/>
+
+                </div>
+              </div>
+
+              <button type="submit">Agendar Consulta</button>
+            </form>
           </div>
-
-          <div className="escrita">
-            <h2>Hospital São Paulo</h2>
-            <p>
-              Somos um hospital universitário vinculado à Universidade <br />
-              Federal de São Paulo (Unifesp), reconhecido como um dos <br />
-              maiores e mais importantes centros de saúde do Brasil. <br />
-              Nos destacamos pela excelência no atendimento médico- <br />
-              hospitalar, formação de profissionais de saúde e pesquisa <br />
-              científica.
-            </p>
-          </div>
-        </section>
-        <div className="localizacao">
-          <iframe
-            src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3656.1771466440177!2d-46.644496!3d-23.597979!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce5a264d6b6611%3A0xae18ff6a2797997b!2sHospital%20S%C3%A3o%20Paulo!5e0!3m2!1spt-BR!2sbr!4v1761910115654!5m2!1spt-BR!2sbr"
-            allowFullScreen
-            loading="lazy"
-            referrerPolicy="no-referrer-when-downgrade"
-            title="Mapa Hospital São Paulo"
-          ></iframe>
-
-          <div className="hospital">
-            <p>
-              <strong>Funcionamento:</strong><br />
-              Unidade de pronto-atendimento e urgência 24 horas.
-            </p>
-
-            <p>
-              <strong>Visitação:</strong><br />
-              Enfermarias: diariamente das 14h às 20h; UTI adulto: das 11h às 12h e das 17h às 18h.
-            </p>
-
-            <p>
-              <strong>Endereço:</strong><br />
-              Rua Napoleão de Barros, 715 – Vila Clementino, São Paulo – SP, CEP 04024-002.
-            </p>
-          </div>
-
-        </div>
-      </div>
-
-
-
-
-      <section className="endereco">
-        <div className="logo">
-          <img src="/hospitalgj.webp" height="100px" className="logo" alt="Hospital São Paulo" />
-        </div>
-
-        <div className="escrita">
-          <h2>Hospital Geral Grajaú</h2>
-          <p>
-            Somos um hospital público estadual localizado na Zona Sul da <br />  cidade de São Paulo, com papel estratégico no atendimento  <br /> médico-hospitalar, formação de profissionais de saúde e <br /> pesquisa, voltado para servir uma região de grande <br /> vulnerabilidade social.
-          </p>
         </div>
       </section>
 
 
 
+      <div className="cima">
+        <h1>Hospitais para a sua consulta</h1>
+
+       
+        <section className="endereco">
+
+          <div className="logo">
+            <img
+              src="/hospitalsp.webp" height="100px" className="logo" alt="Hospital São Paulo"
+            />
+          </div>
+
+
+          <div className="escrita">
+
+            <h2>Hospital São Paulo</h2>
+            <p>
+              Somos um hospital universitário vinculado à Universidade Federal
+              de São Paulo (Unifesp), reconhecido como um dos maiores e mais
+              importantes centros de saúde do Brasil. Nos destacamos pela
+              excelência no atendimento médico-hospitalar, formação de
+              profissionais de saúde e pesquisa científica.
+            </p>
+
+          </div>
+        </section>
+
+        <div className="localizacao">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3656.1771466440177!2d-46.644496!3d-23.597979!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce5a264d6b6611%3A0xae18ff6a2797997b!2sHospital%20S%C3%A3o%20Paulo!5e0!3m2!1spt-BR!2sbr!4v1761910115654!5m2!1spt-BR!2sbr" allowFullScreen loading="lazy" referrerPolicy="no-referrer-when-downgrade" title="Mapa Hospital São Paulo"
+          ></iframe>
+
+          <div className="hospital">
+
+            <p>
+              <strong>Funcionamento:</strong> Unidade de pronto-atendimento e
+              urgência 24 horas.
+            </p>
+
+            <p>
+              <strong>Visitação:</strong> Enfermarias: diariamente das 14h às
+              20h; UTI adulto: das 11h às 12h e das 17h às 18h.
+            </p>
+
+            <p>
+              <strong>Endereço:</strong> Rua Napoleão de Barros, 715 – Vila
+              Clementino, São Paulo – SP, CEP 04024-002.
+            </p>
+
+          </div>
+
+        </div>
+      </div>
+
+     
+      <section className="endereco">
+        <div className="logo">
+          <img
+            src="/hospitalgj.webp" height="100px" className="logo" alt="Hospital Geral Grajaú"/>
+        </div>
+
+        <div className="escrita">
+
+          <h2>Hospital Geral Grajaú</h2>
+          <p>
+            Somos um hospital público estadual localizado na Zona Sul da cidade
+            de São Paulo, com papel estratégico no atendimento médico-hospitalar
+            e formação de profissionais de saúde, voltado para servir uma região
+            de grande vulnerabilidade social.
+          </p>
+
+        </div>
+      </section>
+
       <div className="localizacao">
         <iframe
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3652.513029803329!2d-46.69347592541518!3d-23.729078067773838!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce4f0d5edbca33%3A0xc8945dfa5cc8006b!2sHospital%20Geral%20de%20Graja%C3%BA!5e0!3m2!1spt-BR!2sbr!4v1761919581414!5m2!1spt-BR!2sbr"
-          loading="lazy"
-          referrerpolicy="no-referrer-when-downgrade"
-          allowfullscreen
-          title="Mapa Hospital Geral de Grajaú"
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3652.513029803329!2d-46.69347592541518!3d-23.729078067773838!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce4f0d5edbca33%3A0xc8945dfa5cc8006b!2sHospital%20Geral%20de%20Graja%C3%BA!5e0!3m2!1spt-BR!2sbr!4v1761919581414!5m2!1spt-BR!2sbr" loading="lazy" referrerPolicy="no-referrer-when-downgrade" allowFullScreentitle="Mapa Hospital Geral de Grajaú"
         ></iframe>
 
         <div className="hospital">
+
           <p>
-            <strong>Funcionamento:</strong><br />
-            Unidade de pronto-atendimento e urgência 24 horas.
+            <strong>Funcionamento:</strong> Unidade de pronto-atendimento e
+            urgência 24 horas.
           </p>
 
           <p>
-            <strong>Visitação:</strong><br />
-            Enfermarias: diariamente das 14h às 20h; <br /> UTI adulto: das 11h às 12h e das 17h às 18h.
+            <strong>Visitação:</strong> Enfermarias: diariamente das 14h às 20h;
+            UTI adulto: das 11h às 12h e das 17h às 18h.
           </p>
 
           <p>
-            <strong>Endereço:</strong><br />
-            Avenida Belmira Marin, 301 – Grajaú, São Paulo – SP, <br /> CEP 04846-000.
+            <strong>Endereço:</strong> Avenida Belmira Marin, 301 – Grajaú, São
+            Paulo – SP, CEP 04846-000.
           </p>
         </div>
-
       </div>
 
+     
       <section className="endereco">
         <div className="logo">
-
-          <img src="/santoamr.webp" height="100px" className="logo" alt="Hospital São Paulo" />
-          
-          <img src="/hospitalst.webp" height="100px" className="logo" alt="Hospital São Paulo" />
-
+          <img src="/santoamr.webp" height="100px" className="logo" alt="Hospital Municipal Integrado Santo Amaro"/>
         </div>
 
         <div className="escrita">
           <h2>Hospital Municipal Integrado Santo Amaro</h2>
           <p>
-            O Hospital de Santo Amaro é um hospital público estadual localizado na Zona Sul de <br /> São Paulo, referência no atendimento à população em situação de vulnerabilidade social. <br /> Atua com foco em assistência médica de qualidade, ensino e pesquisa, contribuindo <br /> para a formação de profissionais de saúde e para o fortalecimento da rede pública. <br />  Oferece serviços de urgência e emergência, clínica médica e cirúrgica, pediatria, ginecologia br e obstetrícia, além de atendimento humanizado e integrado à rede do SUS.
+            O Hospital de Santo Amaro é um hospital público estadual localizado
+            na Zona Sul de São Paulo, referência no atendimento à população em
+            situação de vulnerabilidade social. Atua com foco em assistência
+            médica de qualidade, ensino e pesquisa, contribuindo para a
+            formação de profissionais de saúde e para o fortalecimento da rede
+            pública. Oferece serviços de urgência e emergência, clínica médica e
+            cirúrgica, pediatria, ginecologia e obstetrícia, com atendimento
+            humanizado e integrado à rede do SUS.
           </p>
         </div>
-        </section>
-      
-      
+      </section>
 
-<div className="localizacao">
-      <iframe
-        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3654.7339968235956!2d-46.70685842541831!3d-23.64969546484197!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce51a307b6afdb%3A0x17a85431c97f322d!2sHospital%20Municipal%20Integrado%20de%20Santo%20Amaro!5e0!3m2!1spt-BR!2sbr!4v1762172761172!5m2!1spt-BR!2sbr"
-        loading="lazy"
-        referrerpolicy="no-referrer-when-downgrade"
-        allowfullscreen
-        title="Mapa Hospital Municipal Integrado de Santo Amaro"
-      ></iframe>
+      <div className="localizacao">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3654.7339968235956!2d-46.70685842541831!3d-23.64969546484197!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce51a307b6afdb%3A0x17a85431c97f322d!2sHospital%20Municipal%20Integrado%20de%20Santo%20Amaro!5e0!3m2!1spt-BR!2sbr!4v1762172761172!5m2!1spt-BR!2sbr"
+          loading="lazy"
+          referrerPolicy="no-referrer-when-downgrade"
+          allowFullScreen
+          title="Mapa Hospital Municipal Integrado de Santo Amaro"
+        ></iframe>
 
-      <div className="hospital">
-        <p>
-          <strong>Funcionamento:</strong><br />
-          Unidade de pronto-atendimento e urgência 24 horas.
-        </p>
-
-        <p>
-          <strong>Visitação:</strong><br />
-          Enfermarias: diariamente das 14h às 20h; <br /> UTI adulto: das 11h às 12h e das 17h às 18h.
-        </p>
-  
-        <p> 
-          <strong>Endereço:</strong><br />
-    Av.Adolfooooo Pinheiro, 339 – Alto da Boa Vista <br />  São Paulo – SP, CEP 04735-000
-        </p>
-      </div >
+        <div className="hospital">
           
-    </div >
-        </>
-    );
+          <p>
+            <strong>Funcionamento:</strong> Unidade de pronto-atendimento e
+            urgência 24 horas.
+          </p>
+
+          <p>
+            <strong>Visitação:</strong> Enfermarias: diariamente das 14h às 20h;
+            UTI adulto: das 11h às 12h e das 17h às 18h.
+          </p>
+
+          <p>
+            <strong>Endereço:</strong> Av. Adolfo Pinheiro, 339 – Alto da Boa
+            Vista, São Paulo – SP, CEP 04735-000.
+          </p>
+
+        </div>
+      </div>
+    </>
+  );
 }

@@ -7,6 +7,7 @@ import Sobre from "./pages/sobre/sobre";
 import Consulta from "./pages/verificarConsultas/consulta";
 import Blogs from "./pages/blogs/blog";
 import Desenvolvedores from "./pages/desenvolvedores";
+import Atendimento from "./pages/atendimento/atendimento"
 
 
 export default function Navegacao(){
@@ -21,6 +22,7 @@ export default function Navegacao(){
                  <Route path="/consulta" element={<Consulta/>}/>
                  <Route path="/blogs" element={<Blogs/>}/>
                  <Route path="/dev" element={<Desenvolvedores/> }/>
+                 <Route path="/atendimento" element={<Atendimento/> } />
             </Routes>
         </BrowserRouter>
     )

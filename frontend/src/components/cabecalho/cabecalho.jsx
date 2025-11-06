@@ -39,7 +39,7 @@ export default function Cabecalho() {
 
       {menuAberto && (
         <div className="menu-suspenso">
-          <a href="/consulta"><button>Consultas</button></a>
+          <a href="/consulta"><button>Suas Consultas</button></a>
           <br />
           <a href="/dev"><button>Desenvolvedores</button></a>
             <br />

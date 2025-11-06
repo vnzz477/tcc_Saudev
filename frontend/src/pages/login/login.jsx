@@ -49,20 +49,11 @@ export default function Login() {
 
         <form className="login-formulario" onSubmit={entrar}>
           <label>CPF:</label>
-          <input
-            type="text"
-            placeholder="Digite seu CPF"
-            value={cpf}
-            onChange={e => setCpf(e.target.value)}
-          />
+          
+          <input type="text" placeholder="Digite seu CPF" value={cpf} onChange={e => setCpf(e.target.value)}/>
 
           <label>Senha:</label>
-          <input
-            type="password"
-            placeholder="Digite sua Senha"
-            value={senha}
-            onChange={e => setSenha(e.target.value)}
-          />
+          <input type="password" placeholder="Digite sua Senha" value={senha} onChange={e => setSenha(e.target.value)}/>
 
           <button type="submit">Entrar</button>
 
