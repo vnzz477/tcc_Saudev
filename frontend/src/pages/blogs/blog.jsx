@@ -43,13 +43,8 @@ export default function Blog() {
               intestinal
             </h3>
             <p>
-              Probióticos são microrganismos que habitam nosso sistema digestivo
-              e fazem parte do nosso microbioma intestinal. Sejam fungos ou
-              bactérias, eles […]
+            Probióticos são microrganismos que habitam nosso sistema digestivo e fazem parte do nosso microbioma intestinal. Sejam fungos ou bactérias, eles desempenham um papel importante na conservação da saúde do intestino, mantendo e restaurando o seu equilíbrio natural.
             </p>
-            <a href="https://vidasaudavel.einstein.br/entenda-o-que-sao-probioticos-e-seus-beneficios-para-a-saude-intestinal/" className="btn">
-              Leia mais...
-            </a>
           </div>
         </section>
 
@@ -64,9 +59,6 @@ export default function Blog() {
               objetivo responder aos seus principais questionamentos sobre o
               assunto.
             </p>
-            <a href="https://vidasaudavel.einstein.br/alimentacao-equilibrada/" className="btn">
-              Leia mais...
-            </a>
           </div>
         </section>
 
@@ -74,8 +66,8 @@ export default function Blog() {
           <img src="/public/banana.webp" alt="Banana" />
           <div className="post-content">
             <h3>
-              Saiba por que o potássio é essencial <br /> para a saúde
-              cardiovascular:
+              Saiba por que o potássio é essencial para a saúde
+              cardiovascular: <br />
             </h3>
             <p>
               Quando o assunto é <b>hipertensão</b>, o sódio costuma roubar a
@@ -84,9 +76,6 @@ export default function Blog() {
               na <b>pressão arterial</b> do que apenas reduzir o sal no dia a
               dia.
             </p>
-            <a href="https://vidasaudavel.einstein.br/saiba-por-que-o-potassio-e-essencial-para-a-saude-cardiovascular/" className="btn">
-              Leia mais...
-            </a>
           </div>
         </section>
 
@@ -109,21 +98,18 @@ export default function Blog() {
 
         <section className="post azul-claro">
           <img
-            src="/public/cadeira-extensora-musculos-trabalhados-e-seus-beneficios-510x392.webp"
+            src="/public/SEDENTARISMO-1280x720.webp"
             alt="Cadeira extensora"
           />
           <div className="post-content">
             <h3>
-              Cadeira extensora: saiba quais músculos ela trabalha e seus
-              benefícios
+            Como sair do sedentarismo? saiba como começar a fazer atividade física
             </h3>
             <p>
-              A cadeira extensora é um dos aparelhos mais tradicionais das
-              academias e está presente tanto em treinos de iniciantes quanto […]
+            A prática regular de exercícios físicos é uma das principais recomendações para a prevenção e o tratamento de diversas doenças. Segundo o Ministério da Saúde, engajar-se em atividades que exijam movimentação corporal e gasto de energia pode reduzir os riscos de desenvolver problemas como hipertensão, diabetes e câncer de mama. Além disso, fortalece a imunidade e as estruturas musculares e ósseas. 
+
+
             </p>
-            <a href="https://vidasaudavel.einstein.br/cadeira-extensora-saiba-quais-musculos-ela-trabalha-e-seus-beneficios/" className="btn">
-              Leia mais...
-            </a>
           </div>
         </section>
 
@@ -138,13 +124,11 @@ export default function Blog() {
               física
             </h3>
             <p>
-              Em um mundo cada vez mais digital, as discussões sobre a
-              importância do incentivo às atividades físicas têm ganhado
-              destaque […]
+            Em um mundo cada vez mais digital, as discussões sobre a importância do incentivo às atividades físicas têm adquirido tom de urgência. 
+            A preocupação diz respeito, sobretudo, à importância dos exercícios no desenvolvimento de crianças e adolescentes.
+
+Mais do que uma forma de lazer, uma infância ativa é fundamental para o desenvolvimento físico, mental e social. 
             </p>
-            <a href="https://vidasaudavel.einstein.br/como-incentivar-que-criancas-e-adolescentes-pratiquem-atividade-fisica/" className="btn">
-              Leia mais...
-            </a>
           </div>
         </section>
 
@@ -174,9 +158,6 @@ export default function Blog() {
               prejudicial à saúde. Não existe um padrão de qualidade ou controle
               de segurança na fabricação desses produtos.
             </p>
-            <a href="https://vidasaudavel.einstein.br/cigarro-eletronico-faz-mal-a-saude/" className="btn">
-              Leia mais...
-            </a>
           </div>
         </section>
 
@@ -194,30 +175,27 @@ export default function Blog() {
               dúvidas sobre qual remédio é realmente seguro. Muitas substâncias
               atravessam a placenta e podem afetar o desenvolvimento do bebê.
             </p>
-            <a href="https://vidasaudavel.einstein.br/quais-remedios-as-gestantes-nao-devem-tomar/" className="btn">
-              Leia mais...
-            </a>
           </div>
         </section>
 
         <section className="post-cinza">
-          <img src="/public/melatonina.webp" alt="criança dormindo" />
+          <img src="/public/coceira-na-vagina.webp" alt="coceira íntima" />
           <div className="post-content-dr">
             <h3 className="melatonina">
-              Melatonina: substância afeta a qualidade do sono em crianças
+            Coceira na vagina: Saiba Como Se Cuidar
             </h3>
             <p>
-              A melatonina tem sido amplamente utilizada como indutor do sono em
-              crianças e adultos, muitas vezes sem acompanhamento profissional.
+            A coceira vaginal é uma das queixas mais comuns nos consultórios ginecológicos e pode surgir em qualquer fase da vida da mulher, desde a infância até a pós-menopausa. 
+            Em muitos casos, está ligada a situações simples e passageiras, mas também pode indicar problemas mais sérios que exigem avaliação médica.
             </p>
-            <a href="https://vidasaudavel.einstein.br/melatonina-substancia-afeta-a-qualidade-do-sono-em-criancas/" className="btn">
-              Leia mais...
-            </a>
           </div>
         </section>
       </main>
+    
+    
 
       <Rodape/>
     </div>
+  
   );
 }

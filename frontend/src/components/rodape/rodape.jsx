@@ -52,7 +52,7 @@ export default function Rodape() {
           <div className="coluna">
             <h1>Portal de Atendimento</h1>
             <div className="links">
-              <Link to="#">Atendimento ao Cliente</Link>
+              <Link to="/atendimento">Atendimento ao Cliente</Link>
             </div>
           </div>
 

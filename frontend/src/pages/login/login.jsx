@@ -13,7 +13,7 @@ export default function Login() {
     const token = localStorage.getItem("TOKEN");
 
     if (usuario && token) {
-      navigate('/');
+      navigate('/inicio');
     }
   }, [navigate]);
 
@@ -32,7 +32,7 @@ export default function Login() {
       localStorage.setItem('TOKEN', resp.data.token);
       localStorage.setItem('USUARIO', usuario.email);
       localStorage.setItem('ID_USUARIO', usuarioi.id); 
-      navigate('/');
+      navigate('/inicio');
     } catch (err) {
       alert('Cpf ou senha incorretos');
     }

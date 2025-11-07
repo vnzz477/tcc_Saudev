@@ -32,37 +32,39 @@ export default function Sobre() {
           </h3>
 
           <div className="sobre-grid">
-         
+
             <div className="sobre-card">
               <img src="/feliz2.webp" alt="Cliente feliz" />
             </div>
 
-          
+
             <div className="sobre-card">
               <p>
-                Há uma demanda muito grande, de fato, porém recebi um atendimento humanizado
-                pela equipe de enfermagem desta unidade quando fui realizar um teste de intolerância à lactose.
-                Me explicaram como era feito o exame, sempre se preocupando com meu bem-estar.
+                A plataforma é excelente! Pude escolher o especialista que queria,
+                ver avaliações de outros pacientes e marcar a consulta em menos de cinco minutos.
+                Gostei muito da organização e do suporte oferecido.
               </p>
               <div className="stars">★★★★★</div>
               <span className="data">23 de Abril de 2025</span>
             </div>
 
-            
+
             <div className="sobre-card">
               <p>
-                Fiz um exame de endoscopia pela primeira vez na vida hoje rs.
-                Fui muito bem atendida por toda a equipe desde a recepção até o atendimento em si.
+                Um excelente site para marcar suas consultas,
+                muito sastifeita por ser básico e simples de utilizar.
+                Marquei a minha consulta e foi muito facil e não tive nem duvidas da onde ir.
               </p>
               <div className="stars">★★★★★</div>
               <span className="data">29 de Agosto de 2025</span>
             </div>
 
-         
+
             <div className="sobre-card">
               <p>
-                O atendimento é o melhor, com profissionais muito educados e atenciosos,
-                sem palavras — super recomendo.
+                Um serviço incrível que realmente facilita nossa vida.
+                Tudo é bem explicado e seguro. Me senti confiante em usar e o atendimento médico foi impecável.
+                É ótimo ver tecnologia sendo usada para cuidar de pessoas!
               </p>
               <div className="stars">★★★★★</div>
               <span className="data">17 de Março de 2025</span>

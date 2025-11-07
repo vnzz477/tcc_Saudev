@@ -6,7 +6,7 @@ export default function Desenvolvedores() {
     <>
       <header className="dev-cabecalho">
         <div className="logo-dev-cabecalho">
-          <Link to={"/"}>
+          <Link to={"/inicio"}>
             <img src="/logoDEV.webp" alt="desenvolvedores" className="logo-cabecalho-dev" />
           </Link>
         </div>

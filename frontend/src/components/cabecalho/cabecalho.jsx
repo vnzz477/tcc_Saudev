@@ -10,13 +10,13 @@ export default function Cabecalho() {
   function sair() {
     localStorage.removeItem("TOKEN");
     localStorage.removeItem("USUARIO");
-    navigate("/login");
+    navigate("/");
   }
 
   return (
     <header className="header-cabecalho">
       <div className="logo-area-cabecalho">
-        <Link to={'/'}>
+        <Link to={'/inicio'}>
         <img src="/logo.png" alt="Saúde com Você" className="logo-cabecalho" />
         </Link>
         <h1>SAÚDE COM VOCÊ</h1>
@@ -24,7 +24,7 @@ export default function Cabecalho() {
 
       <nav className="nav-cabecalho">
         <a href="/blogs">Blogs</a>
-        <a href="/">Início</a>
+        <a href="/inicio">Início</a>
         <a href="/sobre">Sobre Nós</a>
       </nav>
 

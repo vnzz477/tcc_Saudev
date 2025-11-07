@@ -8,13 +8,14 @@ import Consulta from "./pages/verificarConsultas/consulta";
 import Blogs from "./pages/blogs/blog";
 import Desenvolvedores from "./pages/desenvolvedores";
 import Atendimento from "./pages/atendimento/atendimento"
+import Sobre2 from "./pages/sobre2/sobre2"
 
 
 export default function Navegacao(){
     return(
         <BrowserRouter>
             <Routes>
-                <Route path="/" element={<Inicio/>}/>
+            <Route path="/inicio" element={<Inicio/>}/>
                 <Route path="/Cadastro" element={<Cadastro/>}/>
                 <Route path="/login" element={<Login/>}/>
                  <Route path="/agenda" element={<Agenda/>}/>
@@ -23,6 +24,7 @@ export default function Navegacao(){
                  <Route path="/blogs" element={<Blogs/>}/>
                  <Route path="/dev" element={<Desenvolvedores/> }/>
                  <Route path="/atendimento" element={<Atendimento/> } />
+                 <Route path="/" element={<Sobre2/>}/>
             </Routes>
         </BrowserRouter>
     )
