@@ -1,15 +1,21 @@
 .header-cabecalho {
-  background-color: #36aeea; 
+  background-color: #36aeea;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-between; /* volta ao padrão */
   padding: 8px 25px;
   border-radius: 10px;
   width: 96%;
   margin: 15px auto;
   box-sizing: border-box;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
 }
 
+/* logo à esquerda */
 .logo-area-cabecalho {
   display: flex;
   align-items: center;
@@ -17,23 +23,25 @@
 }
 
 .logo-cabecalho {
-  width: 45px; 
+  width: 45px;
   height: 45px;
 }
 
 .logo-area-cabecalho h1 {
   color: white;
-  font-size: 1.2rem; 
+  font-size: 1.2rem;
   font-weight: 600;
   letter-spacing: 0.5px;
 }
 
-
-
+/* centraliza o menu de navegação */
 .nav-cabecalho {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
   display: flex;
   align-items: center;
-  gap: 20px;
+  gap: 25px;
 }
 
 .nav-cabecalho a {
@@ -47,7 +55,7 @@
   opacity: 0.8;
 }
 
-
+/* ícone de menu no canto direito */
 .menu-icone {
   width: 25px;
   height: 20px;
@@ -78,6 +86,7 @@
   }
 }
 
+/* menu suspenso */
 .menu-suspenso {
   position: absolute;
   top: 70px;
@@ -103,4 +112,3 @@
     }
   }
 }
-

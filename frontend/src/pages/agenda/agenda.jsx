@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "./Agenda.scss";
 import api from "../../api";
 import Cabecalho from "../../components/cabecalho/Cabecalho";
+import Rodape from "../../components/rodape/rodape";
 
 export default function Agenda() {
   const [motivo, setMotivo] = useState("");
@@ -299,6 +300,8 @@ export default function Agenda() {
 
         </div>
       </div>
+
+      <Rodape/>
 
     </>
   );
