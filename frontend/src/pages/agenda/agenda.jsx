@@ -12,25 +12,26 @@ export default function Agenda() {
   const [data, setData] = useState("");
   const [hora, setHora] = useState("");
 
-
-
-  async function carregarMedicos(idHospital) {
-    try {
-      const resp = await api.get(`/medicos/${idHospital}`);
-      setListaMedicos(resp.data);
-    } catch (err) {
-      alert("Erro ao carregar médicos!");
+ async function carregarMedicos(idHospital, especialidadeSelecionada) {
+  try {
+    if (!idHospital || !especialidadeSelecionada) {
+      setListaMedicos([]);
+      return;
     }
+
+    
+    const resp = await api.get(`/medicos/${idHospital}`);
+
+    const medicosFiltrados = resp.data.filter(
+      (m) => m.especialidade.toLowerCase() === especialidadeSelecionada.toLowerCase()
+    );
+
+    setListaMedicos(medicosFiltrados);
+  } catch (err) {
+    console.error(err);
+    alert("Erro ao carregar médicos!");
   }
-
-
-
-  function selecionarHospital(e) {
-    const id = e.target.value;
-    setHospital(id);
-    carregarMedicos(id);
-  }
-
+}
 
 
   async function agendarConsulta(e) {
@@ -55,10 +56,8 @@ export default function Agenda() {
       };
 
       await api.post("/consulta", body);
-
       alert("Consulta agendada com sucesso!");
 
-      
       setMotivo("");
       setEspecialidade("");
       setHospital("");
@@ -67,13 +66,9 @@ export default function Agenda() {
       setHora("");
       setListaMedicos([]);
     } catch (err) {
-      console.error(err);
-      alert("Erro ao agendar consulta: " + (err.response?.data?.erro || err.message));
+      alert(err.response?.data?.erro || "Erro ao agendar consulta!");
     }
   }
-
-
-
 
   return (
     <>
@@ -87,35 +82,37 @@ export default function Agenda() {
 
           <div className="agenda-formulario">
             <h2>Agende sua consulta</h2>
-            <p>
-              Preencha os campos abaixo para escolher sua especialidade e
-              confirmar sua consulta com segurança.
-            </p>
+            <p>Preencha os campos abaixo para escolher sua especialidade e confirmar sua consulta com segurança.</p>
 
             <form onSubmit={agendarConsulta}>
               <label htmlFor="motivo">Informe o motivo da consulta</label>
+              
               <input type="text" id="motivo" required value={motivo} onChange={(e) => setMotivo(e.target.value)}/>
 
               <div className="form-dupla">
                 <div>
                   <label htmlFor="hospital">Selecione o hospital</label>
-                  <select id="hospital" value={hospital} onChange={selecionarHospital}>
+                  <select id="hospital" value={hospital} onChange={(e) => {  const valor = e.target.value; setHospital(valor); carregarMedicos(valor, especialidade); }} >
+                    
                     <option value="">Selecione</option>
                     <option value="1">Hospital São Paulo</option>
                     <option value="2">Hospital Geral Grajaú</option>
                     <option value="3">Hospital Municipal Santo Amaro</option>
+
                   </select>
                 </div>
 
                 <div>
                   <label htmlFor="especialidade">Especialidade</label>
-                  <select id="especialidade" value={especialidade} onChange={(e) => setEspecialidade(e.target.value)}>
+                  <select id="especialidade"  value={especialidade} onChange={(e) => { const valor = e.target.value;  setEspecialidade(valor); carregarMedicos(hospital, valor); }} >
+                    
                     <option value="">Selecione</option>
                     <option>Clínico Geral</option>
                     <option>Cardiologia</option>
                     <option>Pediatria</option>
                     <option>Ortopedia</option>
                     <option>Dermatologia</option>
+
                   </select>
                 </div>
               </div>
@@ -123,35 +120,28 @@ export default function Agenda() {
               <div className="form-dupla">
                 <div>
                   <label htmlFor="medico">Selecione o médico</label>
-                  <select
-                    id="medico"
-                    value={medico}
-                    onChange={(e) => setMedico(e.target.value)}
-                  >
+                  <select id="medico" value={medico} onChange={(e) => setMedico(e.target.value)} >
+
                     <option value="">Selecione um médico</option>
                     {listaMedicos.map((m) => (
                       <option key={m.id_medico} value={m.id_medico}>
                         {m.nome} - {m.especialidade}
                       </option>
                     ))}
-
                   </select>
                 </div>
               </div>
 
               <div className="form-dupla">
                 <div>
-
                   <label htmlFor="data">Data da consulta</label>
-                  <input
-                    type="date" id="data" value={data} onChange={(e) => setData(e.target.value)}/>
+                  <input type="date" id="data" value={data} onChange={(e) => setData(e.target.value)} />
                 </div>
 
                 <div>
                   <label htmlFor="hora">Horário disponível</label>
-                  <input
-                    type="time" id="hora" value={hora} onChange={(e) => setHora(e.target.value)}/>
 
+                  <input type="time" id="hora" value={hora} onChange={(e) => setHora(e.target.value)}/>
                 </div>
               </div>
 
@@ -161,9 +151,7 @@ export default function Agenda() {
         </div>
       </section>
 
-
-
-      <div className="cima">
+ <div className="cima">
         <h1>Hospitais para a sua consulta</h1>
 
        
@@ -194,6 +182,7 @@ export default function Agenda() {
           <iframe
             src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3656.1771466440177!2d-46.644496!3d-23.597979!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce5a264d6b6611%3A0xae18ff6a2797997b!2sHospital%20S%C3%A3o%20Paulo!5e0!3m2!1spt-BR!2sbr!4v1761910115654!5m2!1spt-BR!2sbr" allowFullScreen loading="lazy" referrerPolicy="no-referrer-when-downgrade" title="Mapa Hospital São Paulo"
           ></iframe>
+
 
           <div className="hospital">
 
@@ -310,6 +299,7 @@ export default function Agenda() {
 
         </div>
       </div>
+
     </>
   );
 }
