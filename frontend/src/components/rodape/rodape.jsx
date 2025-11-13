@@ -40,10 +40,10 @@ export default function Rodape() {
           <div className="coluna">
             <h1>Empresarial</h1>
             <div className="links">
-              <Link to="/dev">Quem Somos</Link>
+              <Link to="/sobre">Quem Somos</Link>
               <Link to="/dev">Trabalhe Conosco</Link>
-              <Link to="#">Termos de Uso</Link>
-              <Link to="#">Política de Privacidade</Link>
+              <Link to="/TermodeUso">Termos de Uso</Link>
+              <Link to="/PoliticaPrivacidade">Política de Privacidade</Link>
             </div>
           </div>
 
