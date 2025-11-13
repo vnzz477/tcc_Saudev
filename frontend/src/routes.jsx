@@ -6,9 +6,11 @@ import Agenda from "./pages/agenda/agenda";
 import Sobre from "./pages/sobre/sobre";
 import Consulta from "./pages/verificarConsultas/consulta";
 import Blogs from "./pages/blogs/blog";
-import Desenvolvedores from "./pages/desenvolvedores";
+import Desenvolvedores from "./pages/desenvolvedores/dev";
 import Atendimento from "./pages/atendimento/atendimento"
 import Sobre2 from "./pages/sobre2/sobre2"
+import Termo from "./pages/termodeuso/termo";
+import PoliticaPrivacidade from "./pages/privacidade/priv";
 
 
 export default function Navegacao(){
@@ -24,6 +26,8 @@ export default function Navegacao(){
                  <Route path="/blogs" element={<Blogs/>}/>
                  <Route path="/dev" element={<Desenvolvedores/> }/>
                  <Route path="/atendimento" element={<Atendimento/> } />
+                 <Route path="/TermodeUso" element={<Termo/>}/>
+                 <Route path="/PoliticaPrivacidade" element={<PoliticaPrivacidade />} />
                  <Route path="/" element={<Sobre2/>}/>
             </Routes>
         </BrowserRouter>

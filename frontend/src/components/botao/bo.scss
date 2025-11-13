@@ -1,0 +1,34 @@
+.botao {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    z-index: 10;
+}
+
+
+
+
+
+.botao-padrao {
+    background-color: #2ea8df; 
+
+    &:hover {
+        background-color: #2196c9;
+    }
+}
+
+.botao-violeta {
+    background-color: #5a00a0;
+
+    &:hover {
+        background-color: #9500ff;
+    }
+}
+
+.botao-preto {
+    background-color: #0d0d0d;
+
+    &:hover {
+        background-color: #1a1a1a;
+    }
+}

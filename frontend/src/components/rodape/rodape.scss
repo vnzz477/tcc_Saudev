@@ -7,7 +7,7 @@ footer {
   .container-rodape {
     display: flex;
     justify-content: center;
-    align-items: flex-start;
+    align-items: center;
     gap: 80px;
     flex-wrap: wrap;
     max-width: 1200px;
@@ -17,6 +17,7 @@ footer {
   .coluna-principal {
     display: flex;
     flex-direction: column;
+    justify-content: center;
     gap: 8px;
     max-width: 250px;
 
@@ -55,8 +56,7 @@ footer {
     .icones {
       display: flex;
       align-items: center;
-      gap: 8px;
-      margin-left: 52px;
+      gap: 9px;
       margin-top: 1px;
 
       img {
@@ -83,10 +83,14 @@ footer {
     .coluna {
       display: flex;
       flex-direction: column;
+      
       gap: 10px;
       min-width: 180px;
 
       h1 {
+        display: flex;
+        justify-content: flex-start;
+        color: white;
         font-size: 1rem;
         font-weight: 700;
         margin-bottom: 10px;

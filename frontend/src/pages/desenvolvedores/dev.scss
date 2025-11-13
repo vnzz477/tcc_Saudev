@@ -147,6 +147,7 @@
   h3 {
     display: flex;
     justify-content: center;
+    color: white;
     margin-top: 10px;
   }
 }
@@ -258,7 +259,7 @@
   color: white;
   display: flex;
   align-items: center;
-  justify-content: space-between; 
+  justify-content: space-between; /* separa texto e logo */
   padding: 10px 40px;
   font-size: 14px;
   font-weight: 500;
@@ -266,10 +267,10 @@
 }
 
 footer p {
-  margin: 0 auto;
+  margin: 0 auto; /* centraliza horizontalmente */
   position: absolute;
   left: 50%;
-  transform: translateX(-50%); 
+  transform: translateX(-50%); /* centraliza no meio da tela */
 }
 
 .footer-logo {
