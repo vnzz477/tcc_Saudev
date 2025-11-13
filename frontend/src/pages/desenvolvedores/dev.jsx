@@ -1,11 +1,14 @@
 import './dev.scss';
+import { Link } from 'react-router-dom';
 
 export default function Desenvolvedores() {
   return (
     <>
  <header className="front-header">
       <div className="logo-area">
+        <Link to="/inicio"> 
         <img src="logotome.webp" alt="DreamCoders Logo" className="logo-img" />
+        </Link>
       </div>
 
       <nav className="nav-links">
