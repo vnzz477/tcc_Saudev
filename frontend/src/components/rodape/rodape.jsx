@@ -22,9 +22,15 @@ export default function Rodape() {
 
           <h3 className="redes-sociais">Siga nossas redes:</h3>
           <div className="icones">
+           <a href="https://www.instagram.com/tcc_saude2025?igsh=ejIzMTE1YjNlczA1" target="_blank" rel="noopener noreferrer">
             <img src='insta.webp' alt='Instagram' />
+            </a>
+            <a href="https://www.facebook.com/profile.php?id=61583487154525">
             <img src='logofacepreta.png.webp' alt='Facebook' />
+            </a>
+            <a href="https://www.linkedin.com/in/sa%C3%BAde-com-vc-851a42398/" target="_blank" rel="noopener noreferrer">
             <img src='linkdin.webp' alt='LinkedIn' />
+            </a>
           </div>
         </div>
 
@@ -34,10 +40,10 @@ export default function Rodape() {
           <div className="coluna">
             <h1>Empresarial</h1>
             <div className="links">
-              <Link to="/sobre">Quem Somos</Link>
-              <Link to="#">Trabalhe Conosco</Link>
-              <Link to="/TermodeUso">Termos de Uso</Link>
-              <Link to="/PoliticaPrivacidade">Política de Privacidade</Link>
+              <Link to="/dev">Quem Somos</Link>
+              <Link to="/dev">Trabalhe Conosco</Link>
+              <Link to="#">Termos de Uso</Link>
+              <Link to="#">Política de Privacidade</Link>
             </div>
           </div>
 
