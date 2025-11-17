@@ -1,55 +1,111 @@
 .priv-page {
-    background-color: #e6f5fa;
-    min-height: 100vh;
-    display: flex;
-    justify-content: center;
-    padding: 60px 20px;
+  background-color: #e6f5fa;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  padding: 60px 20px;
+}
+
+.priv-container {
+  background: #ffffff;
+  color: #0d353d;
+  max-width: 900px;
+  padding: 40px 50px;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  font-family: "Inter", sans-serif;
+  line-height: 1.6;
+
+  h1 {
+    font-size: 2rem;
+    color: #007baf;
+    text-align: center;
+    margin-bottom: 20px;
   }
-  
-  .priv-container {
-    background: #ffffff;
+
+  h2 {
+    font-size: 1.3rem;
     color: #0d353d;
-    max-width: 900px;
-    padding: 40px 50px;
-    border-radius: 16px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-    font-family: "Inter", sans-serif;
-    line-height: 1.6;
-  
+    margin-top: 30px;
+  }
+
+  p, ul {
+    font-size: 1rem;
+    color: #2c2c2c;
+    margin-top: 10px;
+  }
+
+  ul {
+    list-style: disc;
+    margin-left: 25px;
+  }
+
+  a {
+    color: #007baf;
+    text-decoration: underline;
+  }
+
+  .data {
+    text-align: right;
+    font-size: 0.9rem;
+    margin-top: 40px;
+    color: #555;
+  }
+}
+
+
+@media (max-width: 768px) {
+  .priv-page {
+    padding: 40px 15px;
+  }
+
+  .priv-container {
+    padding: 30px 30px;
+
     h1 {
-      font-size: 2rem;
-      color: #007baf;
-      text-align: center;
-      margin-bottom: 20px;
+      font-size: 1.7rem;
     }
-  
+
     h2 {
-      font-size: 1.3rem;
-      color: #0d353d;
-      margin-top: 30px;
+      font-size: 1.15rem;
     }
-  
+
     p, ul {
-      font-size: 1rem;
-      color: #2c2c2c;
-      margin-top: 10px;
-    }
-  
-    ul {
-      list-style: disc;
-      margin-left: 25px;
-    }
-  
-    a {
-      color: #007baf;
-      text-decoration: underline;
-    }
-  
-    .data {
-      text-align: right;
-      font-size: 0.9rem;
-      margin-top: 40px;
-      color: #555;
+      font-size: 0.95rem;
     }
   }
-  
+}
+
+
+@media (max-width: 480px) {
+  .priv-page {
+    padding: 20px 10px;
+  }
+
+  .priv-container {
+    padding: 25px 20px;
+    border-radius: 12px;
+
+    h1 {
+      font-size: 1.5rem;
+    }
+
+    h2 {
+      font-size: 1.1rem;
+    }
+
+    p, ul {
+      font-size: 0.9rem;
+    }
+
+    ul {
+      margin-left: 18px;
+    }
+
+    .data {
+      text-align: center;
+      font-size: 0.85rem;
+      margin-top: 25px;
+    }
+  }
+}

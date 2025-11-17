@@ -3,116 +3,176 @@ footer {
   color: white;
   padding: 50px 0;
   font-family: 'Poppins', sans-serif;
-
-  .container-rodape {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 80px;
-    flex-wrap: wrap;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 30px;
-  }
-  .coluna-principal {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    gap: 8px;
-    max-width: 250px;
-
-    .logtitulo {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-
-      .logo-rodape {
-        width: 50px;
-        height: auto;
-      }
-
-      .titulo-rodape {
-        font-size: 1rem;
-        font-weight: 700;
-        text-transform: uppercase;
-        color: white;
-      }
-    }
-
-    .slogan {
-      font-size: 0.95rem;
-      font-weight: 600;
-      margin-top: 8px;
-      line-height: 1.4;
-      color: white;
-    }
-
-    .redes-sociais {
-      margin-top: 8px;
-      font-size: 0.9rem;
-      font-weight: 600;
-    }
-
-    .icones {
-      display: flex;
-      align-items: center;
-      gap: 9px;
-      margin-top: 1px;
-
-      img {
-        width: 28px;
-        height: 28px;
-        object-fit: contain;
-        cursor: pointer;
-        transition: transform 0.2s ease;
-
-        &:hover {
-          transform: scale(1.1);
-        }
-      }
-    }
-  }
-
- 
-  .colunas-links {
-    display: flex;
-    justify-content: space-between;
-    gap: 60px;
-    flex-wrap: wrap;
-
-    .coluna {
-      display: flex;
-      flex-direction: column;
-      
-      gap: 10px;
-      min-width: 180px;
-
-      h1 {
-        display: flex;
-        justify-content: flex-start;
-        color: white;
-        font-size: 1rem;
-        font-weight: 700;
-        margin-bottom: 10px;
-      }
-
-      .links {
-        display: flex;
-        flex-direction: column;
-        gap: 10px;
-
-        a {
-          color: white;
-          text-decoration: none;
-          font-size: 0.9rem;
-          transition: color 0.2s;
-
-          &:hover {
-            color: #e0f7ff;
-          }
-        }
-      }
-    }
-  }
   border-top: 2px solid rgba(255, 255, 255, 0.2);
+}
+
+footer .container-rodape {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 80px;
+  flex-wrap: wrap;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 30px;
+}
+
+footer .coluna-principal {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 8px;
+  max-width: 250px;
+}
+
+footer .coluna-principal .logtitulo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+footer .coluna-principal .logtitulo .logo-rodape {
+  width: 50px;
+  height: auto;
+}
+
+footer .coluna-principal .logtitulo .titulo-rodape {
+  font-size: 1rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: white;
+}
+
+footer .coluna-principal .slogan {
+  font-size: 0.95rem;
+  font-weight: 600;
+  margin-top: 8px;
+  line-height: 1.4;
+  color: white;
+}
+
+footer .coluna-principal .redes-sociais {
+  margin-top: 8px;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+footer .coluna-principal .icones {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  margin-top: 1px;
+}
+
+footer .coluna-principal .icones img {
+  width: 28px;
+  height: 28px;
+  object-fit: contain;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+footer .coluna-principal .icones img:hover {
+  transform: scale(1.1);
+}
+
+footer .colunas-links {
+  display: flex;
+  justify-content: space-between;
+  gap: 60px;
+  flex-wrap: wrap;
+}
+
+footer .colunas-links .coluna {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  min-width: 180px;
+}
+
+footer .colunas-links .coluna h1 {
+  display: flex;
+  justify-content: flex-start;
+  color: white;
+  font-size: 1rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+footer .colunas-links .coluna .links {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+footer .colunas-links .coluna .links a {
+  color: white;
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: color 0.2s;
+}
+
+footer .colunas-links .coluna .links a:hover {
+  color: #e0f7ff;
+}
+
+
+
+@media (max-width: 1024px) {
+  footer .container-rodape {
+    gap: 60px;
+  }
+
+  footer .colunas-links {
+    justify-content: center;
+    gap: 40px;
+  }
+}
+
+@media (max-width: 768px) {
+  footer {
+    padding: 40px 0;
+  }
+
+  footer .coluna-principal {
+    align-items: center;
+    text-align: center;
+  }
+
+  footer .colunas-links {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 30px;
+  }
+
+  footer .colunas-links .coluna {
+    min-width: 150px;
+  }
+}
+
+@media (max-width: 480px) {
+  footer {
+    padding: 30px 0;
+  }
+
+  footer .container-rodape {
+    gap: 40px;
+  }
+
+  footer .coluna-principal .logtitulo .logo-rodape {
+    width: 40px;
+  }
+
+  footer .coluna-principal .slogan {
+    font-size: 0.85rem;
+  }
+
+  footer .colunas-links .coluna h1 {
+    font-size: 0.95rem;
+  }
+
+  footer .colunas-links .coluna .links a {
+    font-size: 0.85rem;
+  }
 }

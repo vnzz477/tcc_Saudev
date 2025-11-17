@@ -259,7 +259,7 @@
   color: white;
   display: flex;
   align-items: center;
-  justify-content: space-between; /* separa texto e logo */
+  justify-content: space-between; 
   padding: 10px 40px;
   font-size: 14px;
   font-weight: 500;
@@ -267,10 +267,10 @@
 }
 
 footer p {
-  margin: 0 auto; /* centraliza horizontalmente */
+  margin: 0 auto; 
   position: absolute;
   left: 50%;
-  transform: translateX(-50%); /* centraliza no meio da tela */
+  transform: translateX(-50%); 
 }
 
 .footer-logo {
@@ -281,4 +281,98 @@ footer p {
 .footer-logo img {
   height: 80px;
   width: auto;
+}
+
+@media (max-width: 1024px) {
+
+  .nav-links {
+    gap: 30px;
+  }
+
+  .front-header {
+    height: 70px;
+  }
+
+  .logo-img {
+    width: 130px;
+    height: auto;
+  }
+
+  .dev-card {
+    max-width: 90%;
+  }
+}
+
+
+@media (max-width: 768px) {
+
+ 
+  .nav-links {
+    display: none; 
+  }
+
+  .logo-area {
+    left: 20px;
+  }
+
+
+  .front-card {
+    width: 80%;
+  }
+
+  
+  .front-historia {
+    padding: 40px 10px;
+  }
+
+  
+  .front-especial h2 {
+    font-size: 22px;
+    flex-wrap: wrap;
+    text-align: center;
+  }
+
+  .front-especial p {
+    font-size: 15px;
+    padding: 0 10px;
+  }
+
+
+  .dev-card {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .dev-card img {
+    width: 200px;
+    height: 200px;
+    margin: 15px 0 0 0;
+  }
+
+  .dev-info {
+    text-align: center;
+  }
+
+ 
+  .front-contato {
+    padding: 40px 20px;
+  }
+
+  .front-contato ul {
+    padding-left: 20px;
+  }
+
+ 
+  .front-footer {
+    flex-direction: column;
+    text-align: center;
+    gap: 10px;
+  }
+
+  footer p {
+    position: relative;
+    left: 0;
+    transform: none;
+    margin: 0;
+  }
 }

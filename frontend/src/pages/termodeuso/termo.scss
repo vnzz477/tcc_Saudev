@@ -53,3 +53,61 @@
     }
   }
   
+  @media (max-width: 768px) {
+    .termos-page {
+      padding: 40px 15px;
+    }
+  
+    .termos-container {
+      padding: 30px 30px;
+  
+      h1 {
+        font-size: 1.7rem;
+      }
+  
+      h2 {
+        font-size: 1.15rem;
+      }
+  
+      p,
+      ul {
+        font-size: 0.95rem;
+      }
+    }
+  }
+  
+ 
+  @media (max-width: 480px) {
+    .termos-page {
+      padding: 20px 10px;
+    }
+  
+    .termos-container {
+      padding: 25px 20px;
+      border-radius: 12px;
+  
+      h1 {
+        font-size: 1.5rem;
+      }
+  
+      h2 {
+        font-size: 1.1rem;
+      }
+  
+      p,
+      ul {
+        font-size: 0.9rem;
+      }
+  
+      ul {
+        margin-left: 18px;
+      }
+  
+      .data {
+        text-align: center;
+        font-size: 0.85rem;
+        margin-top: 25px;
+      }
+    }
+  }
+  

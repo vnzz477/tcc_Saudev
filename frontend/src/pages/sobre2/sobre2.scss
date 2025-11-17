@@ -148,3 +148,79 @@ section {
         color: #777;
     }
 }
+
+
+@media (max-width: 1024px) {
+    .sobre-consulta {
+      gap: 20px;
+      padding: 0 20px;
+    }
+  
+    .sobre-logo .sobre-hero-img {
+      width: 500px;
+      height: auto;
+    }
+  
+    .sobre-agenda h1 {
+      font-size: 38px;
+    }
+  
+    .sobre-agenda p {
+      font-size: 18px;
+    }
+  
+    .sobre-saude .sobre-conteudo {
+      padding: 100px 40px 60px;
+    }
+  
+    .sobre-card {
+      max-width: 220px;
+    }
+  }
+  
+  
+  
+  @media (max-width: 768px) {
+    .sobre-consulta {
+      flex-direction: column;
+      text-align: center;
+      margin-top: 50px;
+    }
+  
+    .sobre-logo {
+      justify-content: center;
+      margin-top: 0;
+    }
+  
+    .sobre-logo .sobre-hero-img {
+      width: 350px;
+      height: auto;
+    }
+  
+    .sobre-agenda {
+      text-align: center;
+    }
+  
+    .sobre-agenda h1 {
+      font-size: 32px;
+    }
+  
+    .sobre-agenda p {
+      font-size: 17px;
+    }
+  
+    .sobre-saude .sobre-conteudo {
+      padding: 80px 20px 40px;
+    }
+  
+    .sobre-grid {
+      gap: 20px;
+    }
+  
+    .sobre-card {
+      max-width: 280px;
+    }
+  }
+  
+  
+  

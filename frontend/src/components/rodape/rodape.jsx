@@ -26,7 +26,7 @@ export default function Rodape() {
             <img src='insta.webp' alt='Instagram' />
             </a>
             <a href="https://www.facebook.com/profile.php?id=61583487154525">
-            <img src='logofacepreta.png.webp' alt='Facebook' />
+            <img src='prc3.png' alt='Facebook' />
             </a>
             <a href="https://www.linkedin.com/in/sa%C3%BAde-com-vc-851a42398/" target="_blank" rel="noopener noreferrer">
             <img src='linkdin.webp' alt='LinkedIn' />

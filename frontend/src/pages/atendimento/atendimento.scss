@@ -80,3 +80,45 @@
     color: #444;
     line-height: 1.5;
 }
+
+
+@media (max-width: 1024px) {
+    .faq-lista {
+        max-width: 90%;
+    }
+
+    .titulo {
+        font-size: 24px;
+    }
+
+    .subtitulo {
+        font-size: 24px;
+    }
+}
+
+@media (max-width: 768px) {
+
+    .titulo {
+        margin-top: 60px;
+        font-size: 22px;
+    }
+
+    .ajuda-container {
+        padding: 15px;
+    }
+
+    .cartao-topo {
+        padding: 15px 10px;
+        font-size: 15px;
+    }
+
+    .faq-pergunta {
+        font-size: 15px;
+        padding: 12px 16px;
+    }
+
+    .faq-resposta {
+        font-size: 14px;
+        padding: 10px 16px 16px;
+    }
+}

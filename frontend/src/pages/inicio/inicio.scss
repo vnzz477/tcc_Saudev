@@ -11,19 +11,12 @@ section {
   margin: 0;
 }
 
-
 .main-consulta {
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 40px;
   padding: 48px 60px;
-
-  @media (max-width: 1024px) {
-    flex-direction: column;
-    padding: 40px 30px;
-    text-align: center;
-  }
 }
 
 .main-logo {
@@ -31,80 +24,54 @@ section {
   flex: 1;
   display: flex;
   justify-content: flex-end;
+}
 
-  .main-hero-img {
-    max-width: 700px;
-    height: auto;
-
-    @media (max-width: 1024px) {
-      max-width: 90%;
-      margin: 0 auto;
-    }
-  }
+.main-logo .main-hero-img {
+  max-width: 700px;
+  height: auto;
 }
 
 .main-agenda {
   flex: 1;
   text-align: left;
   color: #2FA4D8;
+}
 
-  @media (max-width: 1024px) {
-    text-align: center;
-  }
+.main-agenda h1 {
+  font-size: 48px;
+  font-weight: 900;
+  line-height: 1.1;
+  margin-bottom: 16px;
+}
 
-  h1 {
-    font-size: 48px;
-    font-weight: 900;
-    line-height: 1.1;
-    margin-bottom: 16px;
+.main-agenda p {
+  font-size: 14px;
+  color: #495057;
+  font-weight: 600;
+  margin-bottom: 24px;
+  line-height: 1.4;
+}
 
-    @media (max-width: 768px) {
-      font-size: 36px;
-    }
+.btn-agendar-main {
+  background-color: #2FA4D8;
+  color: #fff;
+  font-weight: 700;
+  border: none;
+  border-radius: 20px;
+  padding: 12px 28px;
+  cursor: pointer;
+  font-size: 16px;
+  box-shadow: 0 2px 8px rgba(0, 119, 182, 0.3);
+  transition: all 0.3s ease;
+}
 
-    @media (max-width: 480px) {
-      font-size: 28px;
-    }
-  }
+.btn-agendar-main a {
+  color: #FFF6F5;
+  text-decoration: none;
+}
 
-  p {
-    font-size: 14px;
-    color: #495057;
-    font-weight: 600;
-    margin-bottom: 24px;
-    line-height: 1.4;
-
-    @media (max-width: 768px) {
-      font-size: 13px;
-    }
-  }
-
-  .btn-agendar-main {
-    background-color: #2FA4D8;
-    color: #fff;
-    font-weight: 700;
-    border: none;
-    border-radius: 20px;
-    padding: 12px 28px;
-    cursor: pointer;
-    font-size: 16px;
-    box-shadow: 0 2px 8px rgba(0, 119, 182, 0.3);
-    transition: all 0.3s ease;
-
-    a {
-      color: #FFF6F5;
-      text-decoration: none;
-    }
-
-    &:hover {
-      background-color: #0096c7;
-    }
-
-    @media (max-width: 480px) {
-      padding: 10px 22px;
-      font-size: 14px;
-    }
-  }
+.btn-agendar-main:hover {
+  background-color: #0096c7;
 }
 
 .onda-separadora {
@@ -114,165 +81,187 @@ section {
   overflow: hidden;
   margin-top: -80px;
   z-index: 1;
+}
 
-  svg {
-    display: block;
-    width: 100%;
-    height: 220px;
-    position: relative;
+.onda-separadora svg {
+  display: block;
+  width: 100%;
+  height: 220px;
+  position: relative;
+}
 
-    @media (max-width: 768px) {
-      height: 160px;
-    }
-
-    @media (max-width: 480px) {
-      height: 100px;
-    }
-  }
-
-  path {
-    fill: #E6F6FA;
-  }
+.onda-separadora path {
+  fill: #E6F6FA;
 }
 
 .qualidade-saude {
   background-color: #E6F6FA;
   padding: 100px 60px 80px;
   text-align: center;
+}
 
-  @media (max-width: 1024px) {
-    padding: 80px 40px 60px;
+.qualidade-saude h2 {
+  font-family: 'Preahvihear', sans-serif;
+  color: #2FA4D8;
+  font-weight: 500;
+  font-size: 24px;
+  margin-bottom: 60px;
+  line-height: 1.4;
+}
+
+.qualidade-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 40px;
+}
+
+.qualidade-imagem img {
+  max-width: 620px;
+  border-radius: 16px;
+  width: 100%;
+}
+
+.qualidade-cards {
+  display: grid;
+  gap: 20px;
+  justify-items: center;
+}
+
+.card, .retorno, .calend, .pagamento {
+  border-radius: 12px;
+  padding: 16px 20px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+  text-align: left;
+  transition: all 0.3s ease;
+  width: 210px;
+}
+
+.card:hover, .retorno:hover, .calend:hover, .pagamento:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+.card img, .retorno img, .calend img, .pagamento img {
+  width: 30px;
+  height: 30px;
+  margin-bottom: 10px;
+}
+
+.card p, .retorno p, .calend p, .pagamento p {
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+.card { background: #FDFCFF; }
+.card p { color: #3910E0; }
+
+.retorno { background: #FDFCFF; }
+.retorno p { color: #187D9E; }
+
+.calend { background: #FFF6F5; }
+.calend p { color: #A64937; }
+
+.pagamento { background: #E5CEF5; }
+.pagamento p { color: #8B22D6; }
+
+.card-grande {
+  grid-column: span 2;
+  background-color: #e7e0ff;
+  width: 490px;
+}
+
+
+
+@media (max-width: 1024px) {
+  .main-consulta {
+    flex-direction: column;
+    padding: 40px 30px;
+    text-align: center;
   }
 
-  @media (max-width: 768px) {
+  .main-logo .main-hero-img {
+    max-width: 90%;
+    margin: 0 auto;
+  }
+
+  .main-agenda {
+    text-align: center;
+  }
+
+  .qualidade-saude {
+    padding: 80px 40px 60px;
+  }
+}
+
+
+@media (max-width: 768px) {
+  .main-agenda h1 {
+    font-size: 36px;
+  }
+
+  .main-agenda p {
+    font-size: 13px;
+  }
+
+  .onda-separadora svg {
+    height: 160px;
+  }
+
+  .qualidade-saude {
     padding: 60px 20px 40px;
   }
 
-  h2 {
-    font-family: 'Preahvihear', sans-serif;
-    color: #2FA4D8;
-    font-weight: 500;
-    font-size: 24px;
-    margin-bottom: 60px;
-    line-height: 1.4;
-
-    @media (max-width: 768px) {
-      font-size: 20px;
-      margin-bottom: 40px;
-    }
-
-    @media (max-width: 480px) {
-      font-size: 18px;
-      margin-bottom: 30px;
-    }
+  .qualidade-saude h2 {
+    font-size: 20px;
+    margin-bottom: 40px;
   }
 
   .qualidade-grid {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: flex-start;
-    gap: 40px;
-
-    @media (max-width: 768px) {
-      flex-direction: column;
-      align-items: center;
-      gap: 30px;
-    }
-  }
-
-  .qualidade-imagem img {
-    max-width: 620px;
-    border-radius: 16px;
-    width: 100%;
-
-    @media (max-width: 480px) {
-      max-width: 90%;
-    }
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
   }
 
   .qualidade-cards {
-    display: grid;
-    gap: 20px;
-    justify-items: center;
-
-    @media (max-width: 768px) {
-      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-      width: 100%;
-    }
-  }
-
-  .card, .retorno, .calend, .pagamento {
-    border-radius: 12px;
-    padding: 16px 20px;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
-    text-align: left;
-    transition: all 0.3s ease;
-    width: 210px;
-
-    &:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
-    }
-
-    img {
-      width: 30px;
-      height: 30px;
-      margin-bottom: 10px;
-    }
-
-    p {
-      font-size: 13px;
-      font-weight: 600;
-      line-height: 1.3;
-    }
-
-    @media (max-width: 480px) {
-      width: 180px;
-      padding: 14px 16px;
-    }
-  }
-
-  .card {
-    background: #FDFCFF;
-
-    p {
-      color: #3910E0;
-    }
-  }
-
-  .retorno {
-    background: #FDFCFF;
-
-    p {
-      color: #187D9E;
-    }
-  }
-
-  .calend {
-    background: #FFF6F5;
-
-    p {
-      color: #A64937;
-    }
-  }
-
-  .pagamento {
-    background: #E5CEF5;
-
-    p {
-      color: #8B22D6;
-    }
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    width: 100%;
   }
 
   .card-grande {
-    grid-column: span 2;
-    background-color: #e7e0ff;
-    width: 490px;
+    grid-column: auto;
+    width: 90%;
+  }
+}
 
-    @media (max-width: 768px) {
-      grid-column: auto;
-      width: 90%;
-    }
+
+@media (max-width: 480px) {
+  .main-agenda h1 {
+    font-size: 28px;
+  }
+
+  .btn-agendar-main {
+    padding: 10px 22px;
+    font-size: 14px;
+  }
+
+  .onda-separadora svg {
+    height: 100px;
+  }
+
+  .qualidade-saude h2 {
+    font-size: 18px;
+    margin-bottom: 30px;
+  }
+
+  .qualidade-imagem img {
+    max-width: 90%;
+  }
+
+  .card, .retorno, .calend, .pagamento {
+    width: 180px;
+    padding: 14px 16px;
   }
 }
