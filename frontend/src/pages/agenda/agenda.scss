@@ -12,7 +12,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 170px; 
+  gap: 170px;
   padding: 60px 20px;
   max-width: 1200px;
   width: 100%;
@@ -22,7 +22,6 @@
   flex: 1;
   display: flex;
   justify-content: flex-end;
-  
 
   img {
     width: 440px;
@@ -39,60 +38,75 @@
   padding: 40px 50px;
   box-shadow: 0px 3px 12px rgba(0, 0, 0, 0.1);
   text-align: center;
-}
 
-.agenda-formulario h2 {
-  font-family: "Preahvihear", sans-serif;
-  font-size: 28px;
-  color: #2FA4D8;
-  font-weight: 700;
-  margin-bottom: 8px;
-}
+  h2 {
+    font-family: "Preahvihear", sans-serif;
+    font-size: 28px;
+    color: #2FA4D8;
+    font-weight: 700;
+    margin-bottom: 8px;
+  }
 
-.agenda-formulario p {
-  font-family: "Poppins", sans-serif;
-  font-size: 14px;
-  color: #333;
-  margin-bottom: 24px;
-}
+  p {
+    font-family: "Poppins", sans-serif;
+    font-size: 14px;
+    color: #333;
+    margin-bottom: 24px;
+  }
 
-.agenda-formulario form {
-  display: flex;
-  flex-direction: column;
-  gap: 18px;
-  text-align: left;
-}
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    text-align: left;
+  }
 
-.agenda-formulario label {
-  font-size: 13px;
-  font-weight: 600;
-  color: #333;
-  margin-bottom: 4px;
-  display: block;
-}
+  label {
+    font-size: 13px;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 4px;
+    display: block;
+  }
 
-.agenda-formulario input,
-.agenda-formulario select {
-  width: 100%;
-  padding: 12px 14px;
-  border: 1px solid #bbb;
-  border-radius: 6px;
-  outline: none;
-  font-size: 14px;
-  background-color: #fff;
-  transition: border 0.3s;
-}
+  input,
+  select {
+    width: 100%;
+    padding: 12px 14px;
+    border: 1px solid #bbb;
+    border-radius: 6px;
+    outline: none;
+    font-size: 14px;
+    background-color: #fff;
+    transition: border 0.3s;
 
-.agenda-formulario input:focus,
-.agenda-formulario select:focus {
-  border-color: #2FA4D8;
-}
+    &:focus {
+      border-color: #2FA4D8;
+    }
+  }
 
+  button {
+    background-color: #2FA4D8;
+    color: #fff;
+    font-weight: 600;
+    border: none;
+    border-radius: 6px;
+    padding: 14px 0;
+    font-size: 15px;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: background 0.3s;
+
+    &:hover {
+      background-color: #0c7eb0;
+    }
+  }
+}
 
 .form-dupla {
   display: flex;
   justify-content: space-between;
-  gap: 35px; 
+  gap: 35px;
 
   div {
     flex: 1;
@@ -101,29 +115,14 @@
   }
 }
 
-.agenda-formulario button {
-  background-color: #2FA4D8;
-  color: #fff;
-  font-weight: 600;
-  border: none;
-  border-radius: 6px;
-  padding: 14px 0;
-  font-size: 15px;
-  cursor: pointer;
-  margin-top: 10px;
-  transition: background 0.3s;
-}
-
-.agenda-formulario button:hover {
-  background-color: #0c7eb0;
-}
+/* ------- PARTE INFERIOR (ENDEREÇOS) ------- */
 
 .cima {
   width: 100%;
   background-color: #F4FBFF;
   font-family: "Poppins", sans-serif;
   padding: 0;
-  margin: 20px;
+  margin: 20px 0;
 }
 
 .endereco {
@@ -132,50 +131,43 @@
   justify-content: center;
   gap: 40px;
   font-size: 20px;
-
-
 }
-
-
 
 .escrita {
   flex: 1;
   text-align: left;
-  color: #dbdbdb;
 
+  p {
+    color: #666666;
+    margin-top: 20px;
+    font-size: 20px;
+  }
 }
 
-.logo{
+.logo {
   width: 320px;
   height: 200px;
   margin: 20px;
-  border: #333;
   border-radius: 10px;
 }
 
-h1{
+h1 {
   color: #2FA4D8;
   display: flex;
   justify-content: center;
   align-items: center;
-
 }
 
-h2{
+h2 {
   color: #666666;
   margin-top: 20px;
-  align-items: center;
-  justify-content: center;
-
+  text-align: center;
 }
 
-p{
+p {
   color: #666666;
- margin-top: 20px;
+  margin-top: 20px;
 }
-
-
-
 
 .localizacao {
   display: flex;
@@ -184,81 +176,50 @@ p{
   border-radius: 10px;
   font-family: "Poppins", sans-serif;
 
-}
-
-.localizacao iframe {
-  width: 340px;
-  height: 200px;
-  border-radius: 10px;
-  margin-right: 20px;
-  border: none;
+  iframe {
+    width: 340px;
+    height: 200px;
+    border-radius: 10px;
+    margin-right: 20px;
+    border: none;
+    margin-top: 10px;
+  }
 }
 
 .hospital {
   max-width: 650px;
   color: #333;
   font-size: 14px;
-left: 20px;
+
+  p {
+    margin-bottom: 10px;
+    font-size: 15px;
+  }
+
+  strong {
+    color: #666666;
+  }
 }
 
-.hospital p {
-  margin-bottom: 10px;
-  font-size: 15px;
- 
-}
-
-.hospital strong {
-  color: #666666;
-
-}
-
-
-.graja{
-  
-  h1{
+.graja {
+  h1 {
     color: #666666;
   }
 
-  img{
+  img {
     width: 340px;
-  height: 220px;
-  margin:45px;
-  border: #333;
-  border-radius: 10px;
-
-
+    height: 220px;
+    margin: 45px;
+    border-radius: 10px;
   }
 
-  p{
- 
+  p {
     font-size: 15px;
     color: #333;
   }
-
-  
 }
 
-
-.escrita{
-  p{
-    color: #2FA4D8;
-    font-size: 20px;
-  }
-}
-
-.localizacao iframe {
-  width: 340px;
-  height: 200px;
-  border: #333;
-  border-radius: 10px;
-  margin-top: 10px;
-  
-}
-
-
-.escrita p{
-  color: #666666;
-}
+/* ----------- RESPONSIVO ----------- */
 
 @media (max-width: 992px) {
   .agenda-container {
@@ -268,15 +229,28 @@ left: 20px;
 
   .agenda-imagem {
     justify-content: center;
-    margin-right: 0;
-  }
 
-  .agenda-imagem img {
-    width: 350px;
+    img {
+      width: 350px;
+    }
   }
 
   .agenda-formulario {
     width: 90%;
     padding: 30px 25px;
+  }
+
+  .endereco {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .localizacao {
+    flex-direction: column;
+    align-items: center;
+
+    iframe {
+      margin: 0 0 20px 0;
+    }
   }
 }

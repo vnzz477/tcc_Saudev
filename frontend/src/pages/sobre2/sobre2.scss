@@ -1,226 +1,223 @@
 section {
-    font-family: 'Poppins', sans-serif;
+  font-family: 'Poppins', sans-serif;
 }
 
 .sobre2-container {
-    width: 100%;
-    background-color: #F4FBFF;
-    font-family: "Poppins", sans-serif;
-    padding: 0;
-    margin: 0;
+  width: 100%;
+  background-color: #F4FBFF;
+  font-family: "Poppins", sans-serif;
+  padding: 0;
+  margin: 0;
 }
 
 .sobre2-consulta {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 40px;
-    font-size: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+  font-size: 20px;
 }
 
 .sobre2-logo {
-    margin-top: 150px;
-    flex: 1;
-    display: flex;
-    justify-content: flex-end;
+  margin-top: 150px;
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
 
-    .sobre2-hero-img {
-        width: 700px;
-        height: 500px;
-    }
+  .sobre2-hero-img {
+      width: 700px;
+      height: 500px;
+  }
 }
 
 .sobre2-agenda {
-    margin-top: 100px;
-    flex: 1;
-    text-align: left;
-    color: #2FA4D8;
+  margin-top: 100px;
+  flex: 1;
+  text-align: left;
+  color: #2FA4D8;
 
-    h1 {
-        font-size: 48px;
-        font-weight: 900;
-        line-height: 1.1;
-        margin-bottom: 16px;
-    }
+  h1 {
+      font-size: 48px;
+      font-weight: 900;
+      line-height: 1.1;
+      margin-bottom: 16px;
+  }
 
-    p {
-        font-size: 20px;
-        color: #666666;
-        font-weight: 500;
-        margin-bottom: 24px;
-        line-height: 1.4;
-    }
+  p {
+      font-size: 20px;
+      color: #666666;
+      font-weight: 500;
+      margin-bottom: 24px;
+      line-height: 1.4;
+  }
 }
 
 .botao-sobre2 {
-    background-color: #2FA4D8;
-    color: #fff;
-    font-weight: 700;
-    border: none;
-    border-radius: 20px;
-    padding: 12px 28px;
-    cursor: pointer;
-    font-size: 16px;
-    box-shadow: 0 2px 8px rgba(0, 119, 182, 0.3);
-    transition: all 0.3s ease;
-    margin: 40px 0;  
-    display: inline-block;  
-    text-align: center; 
-    outline: none;  
-    text-decoration: none; 
-    &:hover {
-        background-color: #0096c7;
-    }
-}
+  background-color: #2FA4D8;
+  color: #fff;
+  font-weight: 700;
+  border: none;
+  border-radius: 20px;
+  padding: 12px 28px;
+  cursor: pointer;
+  font-size: 16px;
+  box-shadow: 0 2px 8px rgba(0, 119, 182, 0.3);
+  transition: all 0.3s ease;
+  margin: 40px 0;
+  display: inline-block;
+  text-align: center;
+  outline: none;
+  text-decoration: none;
 
+  &:hover {
+      background-color: #0096c7;
+  }
+}
 
 .sobre2-saude {
-    position: relative;
-    margin-top: 60px;
+  position: relative;
+  margin-top: 60px;
 
-    .sobre2-conteudo {
-        position: relative;
-        z-index: 2;
-        text-align: center;
-        padding: 120px 60px 80px;
-        background-color: #F4FBFF;
+  .sobre2-conteudo {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      padding: 120px 60px 80px;
+      background-color: #F4FBFF;
 
-        h3 {
-            color: #2FA4D8;
-            font-size: 35px;
+      h3 {
+          color: #2FA4D8;
+          font-size: 35px;
 
-            span {
-                color: #2FA4D8;
-            }
-        }
-    }
+          span {
+              color: #2FA4D8;
+          }
+      }
+  }
 
-    .sobre2-grid {
-        display: flex;
-        justify-content: center;
-        align-items: stretch;
-        gap: 30px;
-        flex-wrap: wrap;
-        margin-top: 40px;
-    }
+  .sobre2-grid {
+      display: flex;
+      justify-content: center;
+      align-items: stretch;
+      gap: 30px;
+      flex-wrap: wrap;
+      margin-top: 40px;
+  }
 
-    .sobre2-card {
-        background: #fff;
-        border-radius: 20px;
-        border: 2px solid #e0e0e0;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
-        padding: 20px;
-        max-width: 240px;
-        text-align: left;
-        transition: all 0.3s ease;
-        position: relative;
-    }
+  .sobre2-card {
+      background: #fff;
+      border-radius: 20px;
+      border: 2px solid #e0e0e0;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
+      padding: 20px;
+      max-width: 240px;
+      text-align: left;
+      transition: all 0.3s ease;
+      position: relative;
 
-    .sobre2-card:hover {
-        transform: translateY(-6px);
-        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
-    }
+      &:hover {
+          transform: translateY(-6px);
+          box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+      }
 
-    .sobre2-card img {
-        width: 100%;
-        height: 280px;
-        object-fit: cover;
-        border-radius: 15px;
-        margin-bottom: 12px;
-    }
+      img {
+          width: 100%;
+          height: 280px;
+          object-fit: cover;
+          border-radius: 15px;
+          margin-bottom: 12px;
+      }
 
-    .sobre2-card p {
-        font-size: 14px;
-        color: #333;
-        margin-bottom: 10px;
-        line-height: 1.5;
-    }
+      p {
+          font-size: 14px;
+          color: #333;
+          margin-bottom: 10px;
+          line-height: 1.5;
+      }
 
-    .sobre2-card .stars {
-        color: #f5b301;
-        font-size: 20px;
-        margin-bottom: 8px;
-        display: block;
-    }
+      .stars {
+          color: #f5b301;
+          font-size: 20px;
+          margin-bottom: 8px;
+          display: block;
+      }
 
-    .sobre2-card .data {
-        font-size: 12px;
-        color: #777;
-    }
+      .data {
+          font-size: 12px;
+          color: #777;
+      }
+  }
 }
 
+/* ======= RESPONSIVO ======= */
 
 @media (max-width: 1024px) {
-    .sobre-consulta {
+
+  .sobre2-consulta {
       gap: 20px;
       padding: 0 20px;
-    }
-  
-    .sobre-logo .sobre-hero-img {
+  }
+
+  .sobre2-logo .sobre2-hero-img {
       width: 500px;
       height: auto;
-    }
-  
-    .sobre-agenda h1 {
-      font-size: 38px;
-    }
-  
-    .sobre-agenda p {
-      font-size: 18px;
-    }
-  
-    .sobre-saude .sobre-conteudo {
-      padding: 100px 40px 60px;
-    }
-  
-    .sobre-card {
-      max-width: 220px;
-    }
   }
-  
-  
-  
-  @media (max-width: 768px) {
-    .sobre-consulta {
+
+  .sobre2-agenda h1 {
+      font-size: 38px;
+  }
+
+  .sobre2-agenda p {
+      font-size: 18px;
+  }
+
+  .sobre2-saude .sobre2-conteudo {
+      padding: 100px 40px 60px;
+  }
+
+  .sobre2-card {
+      max-width: 220px;
+  }
+}
+
+@media (max-width: 768px) {
+  .sobre2-consulta {
       flex-direction: column;
       text-align: center;
       margin-top: 50px;
-    }
-  
-    .sobre-logo {
+  }
+
+  .sobre2-logo {
       justify-content: center;
       margin-top: 0;
-    }
-  
-    .sobre-logo .sobre-hero-img {
+  }
+
+  .sobre2-logo .sobre2-hero-img {
       width: 350px;
       height: auto;
-    }
-  
-    .sobre-agenda {
-      text-align: center;
-    }
-  
-    .sobre-agenda h1 {
-      font-size: 32px;
-    }
-  
-    .sobre-agenda p {
-      font-size: 17px;
-    }
-  
-    .sobre-saude .sobre-conteudo {
-      padding: 80px 20px 40px;
-    }
-  
-    .sobre-grid {
-      gap: 20px;
-    }
-  
-    .sobre-card {
-      max-width: 280px;
-    }
   }
-  
-  
-  
+
+  .sobre2-agenda {
+      text-align: center;
+  }
+
+  .sobre2-agenda h1 {
+      font-size: 32px;
+  }
+
+  .sobre2-agenda p {
+      font-size: 17px;
+  }
+
+  .sobre2-saude .sobre2-conteudo {
+      padding: 80px 20px 40px;
+  }
+
+  .sobre2-grid {
+      gap: 20px;
+  }
+
+  .sobre2-card {
+      max-width: 280px;
+  }
+}
