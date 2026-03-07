@@ -15,6 +15,8 @@ app.use(endpoints2);
 app.use(medicoController);
 app.use(agendaController);
 
-app.listen(process.env.PORT, () =>
-  console.log(`API rodando na porta ${process.env.PORT}`)
-);
+const PORT = process.env.PORT || 5010;
+
+app.listen(PORT, () => {
+  console.log(`API rodando na porta ${PORT}`);
+});
