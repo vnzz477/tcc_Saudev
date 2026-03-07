@@ -2,7 +2,7 @@
 import axios from 'axios';
 
 const api = axios.create({
-    baseURL: 'http://localhost:5010/',
+    baseURL: 'https://tcc-saudev.onrender.com/',
     headers:{
         "x-access-token": localStorage.getItem("token") || ""
     }
