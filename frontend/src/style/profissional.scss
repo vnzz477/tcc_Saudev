@@ -1,0 +1,63 @@
+/* Identidade visual compartilhada - Saúde com Você */
+:root { font-family: 'Poppins', sans-serif; color: #183b56; background: #f8fbff; font-synthesis: none; }
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+html, body, #root { width: 100%; min-width: 0; }
+body { margin: 0; background: #f8fbff; }
+img { max-width: 100%; }
+a { transition: color .2s ease; }
+button, input, select, textarea { font: inherit; }
+button, a { -webkit-tap-highlight-color: transparent; }
+:focus-visible { outline: 3px solid #168fc4; outline-offset: 3px; }
+/* Navegação */
+.header-cabecalho { background: rgba(255,255,255,.97); border: 1px solid #dbeaf2; border-radius: 18px; box-shadow: 0 12px 35px rgba(24,59,86,.09); padding: 12px 25px; }
+.header-cabecalho .logo-area-cabecalho h1 { color: #183b56; font-size: 1.05rem; }
+.header-cabecalho .nav-cabecalho a { color: #36546b; font-weight: 600; }
+.header-cabecalho .nav-cabecalho a:hover { color: #168fc4; }
+.header-cabecalho .menu-icone { background: #e7f6fd; border: 0; border-radius: 10px; padding: 11px; width: 46px; height: 42px; align-items: center; justify-content: space-between; }
+.header-cabecalho .menu-icone div { background: #168fc4; height: 2px; }
+.header-cabecalho .menu-suspenso { top: calc(100% + 10px); right: 10px; padding: 12px; display: flex; flex-direction: column; gap: 6px; min-width: 210px; border: 1px solid #e2eef5; border-radius: 15px; box-shadow: 0 16px 40px rgba(24,59,86,.13); }
+.header-cabecalho .menu-suspenso .menu-link { display: block; color: #183b56; text-decoration: none; font-size: 14px; font-weight: 600; padding: 11px 12px; border-radius: 9px; }
+.header-cabecalho .menu-suspenso .menu-link:hover { background: #eaf7fc; }
+.header-cabecalho .menu-suspenso button { margin: 0; border-radius: 9px; width: 100%; padding: 11px 12px; }
+/* Autenticação */
+.login-container, .cadastro-container { min-height: 100vh; height: auto; background: #f8fbff; box-shadow: none; }
+.login-container .login-lado-esquerdo, .cadastro-container .cadastro-lado-esquerdo { background: linear-gradient(145deg,#168fc4,#2fa4d8 60%,#83d0eb); }
+.login-container .login-lado-direito, .cadastro-container .cadastro-lado-direito { padding: clamp(28px,5vw,80px); }
+.login-container .login-lado-direito h1, .cadastro-container .cadastro-lado-direito h1 { color: #183b56; font-weight: 800; letter-spacing: -.7px; }
+.login-container .login-formulario label, .cadastro-container .cadastro-formulario label { color: #36546b; font-family: 'Poppins',sans-serif; font-weight: 600; }
+.login-container .login-formulario input, .cadastro-container .cadastro-formulario input { background: #fff; border: 1px solid #d7e5ee; border-radius: 12px; padding: 14px 16px; min-height: 48px; }
+.login-container .login-formulario input:focus, .cadastro-container .cadastro-formulario input:focus { border-color: #168fc4; outline: 3px solid #d8f2ff; }
+.login-container .login-formulario button, .cadastro-container .cadastro-formulario button { border-radius: 12px; min-height: 48px; background: #168fc4; box-shadow: 0 7px 20px rgba(22,143,196,.16); }
+/* Agendamento */
+.agenda-section { background: #f8fbff; }
+.agenda-section .agenda-container { gap: clamp(20px,4vw,70px); max-width: 1200px; padding: 115px 24px 70px; margin: 0 auto; }
+.agenda-section .agenda-imagem img { max-width: 100%; width: min(100%,430px); }
+.agenda-section .agenda-formulario { min-width: 0; padding: clamp(24px,3vw,44px); border: 1px solid #e2edf4; border-radius: 24px; box-shadow: 0 14px 45px rgba(24,59,86,.08); }
+.agenda-section .agenda-formulario h2 { font-family: 'Poppins',sans-serif; color: #183b56; font-weight: 800; }
+.agenda-section .agenda-formulario input, .agenda-section .agenda-formulario select { border-radius: 11px; min-height: 46px; border-color: #d5e4ed; }
+.agenda-section .agenda-formulario input:focus, .agenda-section .agenda-formulario select:focus { outline: 3px solid #def4ff; }
+.agenda-section .agenda-formulario button[type='submit'] { background: #168fc4; border-radius: 12px; min-height: 48px; font-weight: 700; }
+/* Consultas e páginas internas */
+.pagina-consultas .card-consulta, .pagina-consultas .tabela-consultas { border-radius: 20px; }
+.pagina-consultas .formulario-consulta input { max-width: 100%; border-radius: 10px; border: 1px solid #d7e5ee; }
+.pagina-consultas .botao-verificar { border-radius: 12px; background: #168fc4; }
+.pagina-consultas .tabela-consultas { max-width: calc(100vw - 32px); overflow-x: auto; }
+.pagina-consultas .tabela-consultas table { min-width: 640px; }
+/* Mobile */
+@media (max-width: 768px) {
+ .header-cabecalho { width: calc(100% - 24px); margin: 10px 12px; padding: 9px 12px; }
+ .header-cabecalho .logo-area-cabecalho h1 { font-size: .85rem; }
+ .header-cabecalho .menu-icone { flex-shrink: 0; margin-left: 6px; }
+ .agenda-section .agenda-container { flex-direction: column; gap: 18px; padding: 105px 16px 48px; }
+ .agenda-section .agenda-imagem { justify-content: center; width: 100%; }
+ .agenda-section .agenda-imagem img { width: min(260px,80%); }
+ .agenda-section .agenda-formulario { width: 100%; max-width: 580px; padding: 24px 18px; }
+ .login-container .login-lado-direito, .cadastro-container .cadastro-lado-direito { padding: 24px; }
+ .pagina-consultas .area-principal { max-width: 100%; }
+}
+@media (max-width: 480px) {
+ .agenda-section .agenda-formulario .form-dupla { flex-direction: column; }
+ .agenda-section .agenda-formulario .form-dupla > div { width: 100%; min-width: 0; }
+}
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }

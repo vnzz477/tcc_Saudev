@@ -12,7 +12,7 @@ export default function Login() {
     const usuario = localStorage.getItem("USUARIO");
     const token = localStorage.getItem("TOKEN");
 
-    if (usuario && token) {
+    if (token) {
       navigate('/inicio');
     }
   }, [navigate]);
@@ -30,7 +30,7 @@ export default function Login() {
       
 
       localStorage.setItem('TOKEN', resp.data.token);
-      localStorage.setItem('USUARIO', usuario.email);
+      localStorage.setItem('USUARIO', usuario);
       localStorage.setItem('ID_USUARIO', usuarioi.id); 
       navigate('/inicio');
     } catch (err) {
@@ -41,19 +41,19 @@ export default function Login() {
   return (
     <div className="login-container">
       <div className="login-lado-esquerdo">
-        <img src="./Logo1.png" className="login-logo" />
+        <img src="/Logo1.png" alt="Saúde com Você" className="login-logo" />
       </div>
 
       <div className="login-lado-direito">
         <h1>Login - Usuário</h1>
 
         <form className="login-formulario" onSubmit={entrar}>
-          <label>CPF:</label>
+          <label htmlFor="login-cpf">CPF:</label>
           
-          <input type="text" placeholder="Digite seu CPF" value={cpf} onChange={e => setCpf(e.target.value)}/>
+          <input id="login-cpf" required autoComplete="username" type="text" placeholder="Digite seu CPF" value={cpf} onChange={e => setCpf(e.target.value)}/>
 
-          <label>Senha:</label>
-          <input type="password" placeholder="Digite sua Senha" value={senha} onChange={e => setSenha(e.target.value)}/>
+          <label htmlFor="login-senha">Senha:</label>
+          <input id="login-senha" required autoComplete="current-password" type="password" placeholder="Digite sua Senha" value={senha} onChange={e => setSenha(e.target.value)}/>
 
           <button type="submit">Entrar</button>
 

@@ -37,6 +37,7 @@ export default function Agenda() {
 
   async function agendarConsulta(e) {
     e.preventDefault();
+    console.log("FORMULÁRIO ENVIADO: agendarConsulta executada");
 
     try {
       const id_usuario = localStorage.getItem("ID_USUARIO");
@@ -56,7 +57,9 @@ export default function Agenda() {
         hora,
       };
 
-      await api.post("/consulta", body);
+      console.log("Enviando consulta para a API:", body);
+      const resposta = await api.post("/consulta", body);
+      console.log("Resposta da API:", resposta.status, resposta.data);
       alert("Consulta agendada com sucesso!");
 
       setMotivo("");
@@ -67,7 +70,10 @@ export default function Agenda() {
       setHora("");
       setListaMedicos([]);
     } catch (err) {
-      alert(err.response?.data?.erro || "Erro ao agendar consulta!");
+      console.error("ERRO AO AGENDAR:", err);
+      console.error("RESPOSTA DA API:", err.response?.data);
+      console.error("STATUS:", err.response?.status);
+      alert(err.response?.data?.erro || "Erro ao agendar consulta! Verifique o Console.");
     }
   }
 
@@ -85,7 +91,10 @@ export default function Agenda() {
             <h2>Agende sua consulta</h2>
             <p>Preencha os campos abaixo para escolher sua especialidade e confirmar sua consulta com segurança.</p>
 
-            <form onSubmit={agendarConsulta}>
+            <form
+              onSubmit={agendarConsulta}
+              onInvalid={(e) => console.warn("Campo inválido:", e.target.id, e.target.validationMessage)}
+            >
               <label htmlFor="motivo">Informe o motivo da consulta</label>
               
               <input type="text" id="motivo" required value={motivo} onChange={(e) => setMotivo(e.target.value)}/>
@@ -93,7 +102,7 @@ export default function Agenda() {
               <div className="form-dupla">
                 <div>
                   <label htmlFor="hospital">Selecione o hospital</label>
-                  <select id="hospital" value={hospital} onChange={(e) => {  const valor = e.target.value; setHospital(valor); carregarMedicos(valor, especialidade); }} >
+                  <select id="hospital" required value={hospital} onChange={(e) => {  const valor = e.target.value; setHospital(valor); carregarMedicos(valor, especialidade); }} >
                     
                     <option value="">Selecione</option>
                     <option value="1">Hospital São Paulo</option>
@@ -105,7 +114,7 @@ export default function Agenda() {
 
                 <div>
                   <label htmlFor="especialidade">Especialidade</label>
-                  <select id="especialidade"  value={especialidade} onChange={(e) => { const valor = e.target.value;  setEspecialidade(valor); carregarMedicos(hospital, valor); }} >
+                  <select id="especialidade" required value={especialidade} onChange={(e) => { const valor = e.target.value;  setEspecialidade(valor); carregarMedicos(hospital, valor); }} >
                     
                     <option value="">Selecione</option>
                     <option>Clínico Geral</option>
@@ -121,7 +130,7 @@ export default function Agenda() {
               <div className="form-dupla">
                 <div>
                   <label htmlFor="medico">Selecione o médico</label>
-                  <select id="medico" value={medico} onChange={(e) => setMedico(e.target.value)} >
+                  <select id="medico" required value={medico} onChange={(e) => setMedico(e.target.value)} >
 
                     <option value="">Selecione um médico</option>
                     {listaMedicos.map((m) => (
@@ -136,17 +145,22 @@ export default function Agenda() {
               <div className="form-dupla">
                 <div>
                   <label htmlFor="data">Data da consulta</label>
-                  <input type="date" id="data" value={data} onChange={(e) => setData(e.target.value)} />
+                  <input type="date" id="data" required value={data} onChange={(e) => setData(e.target.value)} />
                 </div>
 
                 <div>
                   <label htmlFor="hora">Horário disponível</label>
 
-                  <input type="time" id="hora" value={hora} onChange={(e) => setHora(e.target.value)}/>
+                  <input type="time" id="hora" required value={hora} onChange={(e) => setHora(e.target.value)}/>
                 </div>
               </div>
 
-              <button type="submit">Agendar Consulta</button>
+              <button
+                type="submit"
+                onClick={() => console.log("CLIQUE NO BOTÃO DETECTADO")}
+              >
+                Agendar Consulta
+              </button>
             </form>
           </div>
         </div>
@@ -227,29 +241,33 @@ export default function Agenda() {
         </div>
       </section>
 
-      <div className="localizacao">
-        <iframe
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3652.513029803329!2d-46.69347592541518!3d-23.729078067773838!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce4f0d5edbca33%3A0xc8945dfa5cc8006b!2sHospital%20Geral%20de%20Graja%C3%BA!5e0!3m2!1spt-BR!2sbr!4v1761919581414!5m2!1spt-BR!2sbr" loading="lazy" referrerPolicy="no-referrer-when-downgrade" allowFullScreentitle="Mapa Hospital Geral de Grajaú"
-        ></iframe>
+     
+<div className="localizacao">
+  <iframe
+    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3652.513029803329!2d-46.69347592541518!3d-23.729078067773838!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce4f0d5edbca33%3A0xc8945dfa5cc8006b!2sHospital%20Geral%20de%20Graja%C3%BA!5e0!3m2!1spt-BR!2sbr!4v1761919581414!5m2!1spt-BR!2sbr"
+    loading="lazy"
+    referrerPolicy="no-referrer-when-downgrade"
+    allowFullScreen
+    title="Mapa Hospital Geral de Grajaú"
+  ></iframe>
 
-        <div className="hospital">
+  <div className="hospital">
+    <p>
+      <strong>Funcionamento:</strong> Unidade de pronto-atendimento e
+      urgência 24 horas.
+    </p>
 
-          <p>
-            <strong>Funcionamento:</strong> Unidade de pronto-atendimento e
-            urgência 24 horas.
-          </p>
+    <p>
+      <strong>Visitação:</strong> Enfermarias: diariamente das 14h às 20h;
+      UTI adulto: das 11h às 12h e das 17h às 18h.
+    </p>
 
-          <p>
-            <strong>Visitação:</strong> Enfermarias: diariamente das 14h às 20h;
-            UTI adulto: das 11h às 12h e das 17h às 18h.
-          </p>
-
-          <p>
-            <strong>Endereço:</strong> Avenida Belmira Marin, 301 – Grajaú, São
-            Paulo – SP, CEP 04846-000.
-          </p>
-        </div>
-      </div>
+    <p>
+      <strong>Endereço:</strong> Avenida Belmira Marin, 301 – Grajaú, São
+      Paulo – SP, CEP 04846-000.
+    </p>
+  </div>
+</div>
 
      
       <section className="endereco">

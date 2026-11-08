@@ -1,110 +1,146 @@
+
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { Link } from "react-router-dom";
 import Cabecalho from "../../components/cabecalho/Cabecalho";
 import Rodape from "../../components/rodape/rodape";
-import './Inicio.scss';
+import "./Inicio.scss";
+
+const beneficios = [
+  {
+    imagem: "/imgcard.png",
+    titulo: "Atendimento qualificado",
+    descricao:
+      "Encontre profissionais de diferentes especialidades para cuidar da sua saúde.",
+  },
+  {
+    imagem: "/imgcard1.png",
+    titulo: "Praticidade",
+    descricao:
+      "Consulte as opções disponíveis e organize seu agendamento em poucos passos.",
+  },
+  {
+    imagem: "/imgcard2.png",
+    titulo: "Cuidado contínuo",
+    descricao:
+      "Facilite o planejamento de suas consultas e acompanhamentos.",
+  },
+  {
+    imagem: "/imgcard3.png",
+    titulo: "Agendamento online",
+    descricao:
+      "Escolha as informações da consulta diretamente pela plataforma.",
+  },
+];
 
 export default function Inicio() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    const usuario = localStorage.getItem("USUARIO");
     const token = localStorage.getItem("TOKEN");
 
-    if (!usuario || !token) {
-      navigate('/login');
+    if (!token) {
+      navigate("/login", { replace: true });
     }
   }, [navigate]);
-
 
   return (
     <div className="inicio-container">
       <Cabecalho />
 
-      <section className="main-consulta">
-        <div className="main-logo">
-          <img src="/medica2.png" alt="Médica" className="main-hero-img" />
-        </div>
+      <main>
+        <section className="main-consulta">
+          <div className="main-agenda">
+            <span className="hero-etiqueta">
+              SAÚDE COM VOCÊ
+            </span>
 
-        <div className="main-agenda">
-          <h1>
-            AGENDE SUA <br /> CONSULTA
-          </h1>
-          <p>
-            Profissionais qualificados prontos para cuidar da sua saúde,
-            oferecendo atenção humanizada, experiência comprovada e
-            acompanhamento personalizado.
-          </p>
-          <button className="btn-agendar-main"><Link to={'/agenda'}>AGENDE AQUI</Link></button>
-        </div>
-      </section>
+            <h1>
+              Sua saúde merece
+              <span> atenção especial.</span>
+            </h1>
 
-    
-      <div className="onda-separadora">
-        <svg
-          viewBox="0 0 1440 400"
-          xmlns="http://www.w3.org/2000/svg"
-          preserveAspectRatio="none"
-        >
-          <path
-            fill="#fde7d9"
-            d="M0,240 C300,400 1140,100 1440,260 L1440,400 L0,400 Z"
-          />
-        </svg>
-      </div>
+            <p>
+              Agende suas consultas de forma simples
+              e prática. Uma plataforma pensada para
+              aproximar você dos cuidados que precisa.
+            </p>
 
-      <section className="qualidade-saude">
-        <div className="qualidade-conteudo">
-          <h2>Saúde de qualidade é para todos,<br />para qualquer dia e lugar</h2>
-
-          <div className="qualidade-grid">
-            <div className="qualidade-imagem">
-              <img src="/ulta.jpeg" alt="Consulta com paciente" />
+            <div className="hero-acoes">
+              <a
+                href="/agenda"
+                className="btn-agendar-main"
+              >
+                Agendar consulta
+                <span aria-hidden="true">→</span>
+              </a>
             </div>
 
-            <div className="qualidade-cards">
-              <div className="card card-grande">
-                <img src="/imgcard.png" />
-                <p>Seja atendido por profissionais qualificados, usando equipamentos de alta tecnologia, com alta precisão</p>
-              </div>
-
-
-              <div className="card">
-                <img src="/imgcard1.png" />
-                <p>Controle todo seu histórico médico pelo aplicativo</p>
-              </div>  
-
-
-              <div className="retorno">
-                <img src="/imgcard2.png" />
-                <p>Agende seu retorno facilmente</p>
-              </div>
-
-
-              <div className="calend">
-                <img src="/imgcard3.png" />
-                <p>Agende pelo aplicativo, site ou telefone, até para o mesmo dia</p>
-              </div>
-
-
-              <div className="pagamento">
-                <img src="/imgcard4.png" />
-                <p>Pague de forma facilitada, com exames em até 10x sem juros</p>
-              </div>
-              
-
+            <div className="hero-destaque">
+              <span className="destaque-icone">✓</span>
+              Agendamento online simples e prático
             </div>
-
-
           </div>
 
-        </div>
+          <div className="main-logo">
+            <div className="hero-imagem-fundo">
+              <img
+                src="/medica2.png"
+                alt="Profissional de saúde"
+                className="main-hero-img"
+              />
+            </div>
+          </div>
+        </section>
 
+        <section className="qualidade-saude">
+          <div className="qualidade-conteudo">
+            <span className="secao-etiqueta">
+              NOSSOS BENEFÍCIOS
+            </span>
 
-      </section>
+            <h2>
+              Mais facilidade para cuidar
+              <span> da sua saúde</span>
+            </h2>
 
-      < Rodape />
+            <p className="qualidade-descricao">
+              Uma experiência organizada para você
+              encontrar informações e agendar suas
+              consultas com tranquilidade.
+            </p>
+
+            <div className="qualidade-grid">
+              <div className="qualidade-imagem">
+                <img
+                  src="/ulta.jpeg"
+                  alt="Atendimento de saúde"
+                />
+              </div>
+
+              <div className="qualidade-cards">
+                {beneficios.map((beneficio) => (
+                  <article
+                    className="beneficio-card"
+                    key={beneficio.titulo}
+                  >
+                    <div className="beneficio-icone">
+                      <img
+                        src={beneficio.imagem}
+                        alt=""
+                      />
+                    </div>
+
+                    <h3>{beneficio.titulo}</h3>
+                    <p>{beneficio.descricao}</p>
+                  </article>
+                ))}
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <Rodape />
     </div>
   );
 }

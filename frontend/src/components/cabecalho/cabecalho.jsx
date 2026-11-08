@@ -10,6 +10,7 @@ export default function Cabecalho() {
   function sair() {
     localStorage.removeItem("TOKEN");
     localStorage.removeItem("USUARIO");
+    localStorage.removeItem("ID_USUARIO");
     navigate("/");
   }
 
@@ -28,22 +29,23 @@ export default function Cabecalho() {
         <a href="/sobre">Sobre Nós</a>
       </nav>
 
-      <div
+      <button
+        type="button"
+        aria-label={menuAberto ? "Fechar menu" : "Abrir menu"}
+        aria-expanded={menuAberto}
         className={`menu-icone ${menuAberto ? "ativo" : ""}`}
         onClick={() => setMenuAberto(!menuAberto)}
       >
         <div></div>
         <div></div>
         <div></div>
-      </div>
+      </button>
 
       {menuAberto && (
         <div className="menu-suspenso">
-          <a href="/consulta"><button>Suas Consultas</button></a>
-          <br />
-          <a href="/dev"><button>Desenvolvedores</button></a>
-            <br />
-          <button onClick={sair}>Sair</button>
+          <a href="/consulta" className="menu-link">Minhas consultas</a>
+          <a href="/dev" className="menu-link">Desenvolvedores</a>
+            <button onClick={sair}>Sair</button>
         </div>
       )}
     </header>
